@@ -1,3 +1,13 @@
 @import "compass";
 @import "_variables";
 @import "_mixins";
+
+/* ==========================================================================
+   banner
+   ========================================================================== */
+
+.banner{
+	@include background-size(cover);
+	background-repeat: no-repeat;
+	background-position: center;
+}
