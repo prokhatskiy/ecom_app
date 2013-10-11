@@ -14,7 +14,7 @@ body {
 
 body{
 	min-height: 300px;
-	min-width: 800px;	
+	min-width: 990px;	
 }
 
 .l-wrapper,
@@ -38,6 +38,7 @@ body{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	position: relative;
 }
 
 .l-brands,
@@ -53,13 +54,14 @@ body{
 .l-brands{	
 	background-color: #474747;
 	top: - $hh;	
-	z-index: 2;
+	z-index: 3;
 }
 
 .l-header{
 	background-color: #FFF;
 	top: 0;
 	z-index: 2;
+	position: relative;
 }
 
 .l-content{
@@ -87,7 +89,7 @@ body{
 }
 
 .l-help{
-	position: fixed;
+	position: absolute;
 	z-index: 7;
 	bottom: 0;
 	right: 0;
@@ -314,13 +316,13 @@ body{
 	}
 
 	.l-grid__col_w2{
-		width: 33.33%;
-		left: 50%;
+		width: 33.4%;
+		left: 49.99%;
 	}
 
 	.l-grid__col_w1{
-		width: 16.67%;
-		left: 83.33%;
+		width: 16.68%;
+		left: 83%;
 	}
 	
 	.l-grid__i{
@@ -336,16 +338,16 @@ body{
 
 	.l-grid__i_b2{
 		top: 0;
-		left: 0;
+		left: -0.1%;
 		width: 100%;
-		height: 50%;
+		height: 50.01%;
 	}
 
 	.l-grid__i_b3,
 	.l-grid__i_b4{
-		width: 50%;
-		height: 50%;
-		top: 50%;
+		width: 50.01%;
+		height: 50.01%;
+		top: 49.99%;
 	}
 
 	.l-grid__i_b3{		
@@ -353,7 +355,7 @@ body{
 	}
 
 	.l-grid__i_b4{
-		left: 50%;
+		left: 49.99%;
 	}
 	
 	.l-grid__i_b5,
@@ -373,7 +375,7 @@ body{
 }
 
 
-@media screen and (max-width : 1300px) {
+@media screen and (max-width : $gridtwocolwidth) {
 	.l-grid{
 		.l-grid__col_w2{
 			width: 50%;
@@ -385,7 +387,7 @@ body{
 	}
 }
 
-@media screen and (max-width : 900px) {
+@media screen and (max-width : $gridonecolwidth) {
 	.l-grid{
 		.l-grid__col_w3{
 			width: 100%;
@@ -397,7 +399,7 @@ body{
 	}
 }
 
-@media screen and (max-height : 550px) {
+@media screen and (max-height : $gridonecolheight) {
 	.l-grid{
 		.l-grid__col_w2{
 			width: 50%;

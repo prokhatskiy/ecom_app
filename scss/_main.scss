@@ -3,6 +3,57 @@
 @import "_mixins";
 
 /* ==========================================================================
+   brands
+   ========================================================================== */
+
+.brands{
+	.brands__in{
+		display: table;
+		margin: 0 7%;
+		width: 86%;
+		height: $hh;
+	}
+
+	.brands__l{
+		display: table-cell;
+		height: $hh;
+		vertical-align: middle;
+		text-align: center;
+		line-height: 18px;
+	}
+
+	.brands__viewer{
+		$h : 20px;
+		$w : 20px;
+		height: $h;
+		width: $w;
+		position: absolute;
+		bottom: -$h;
+		left: 10px;
+		background-color: #474747;
+		@include inline('../img/plus__ico.png');
+		cursor: pointer;
+		
+		&:hover,
+		&.brands__viewer_active{
+			@include inline('../img/plus__ico_hover.png');
+		}
+	}
+}
+
+@media screen  and (max-height : $maxHeight) {
+	.brands{		
+		.brands__in{
+			height: $hh_s;
+		}
+
+		.brands__l{
+			height: $hh_s;
+		}
+	}
+}
+
+/* ==========================================================================
    banner
    ========================================================================== */
 
@@ -10,4 +61,465 @@
 	@include background-size(cover);
 	background-repeat: no-repeat;
 	background-position: center;
+	
+	.banner__inner{
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		@include background-size(80% auto);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+.banner_b2{
+	.banner__inner{
+		@include background-size(50% auto);
+		background-position: center 90%;
+	}
+}
+
+.banner_b3{
+	.banner__inner{
+		@include background-size(60% auto);
+	}
+}
+
+.banner_b4{
+	.banner__inner{
+		@include background-size(70% auto);
+	}
+}
+
+.banner_b6{
+	.banner__inner{
+		@include background-size(70% auto);
+		background-position: center 95%;
+	}
+}
+/* ==========================================================================
+   logo
+   ========================================================================== */
+
+.logo{
+	@include inline-block('../img/logo.png');
+	text-indent: -999px;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	left: 50px;
+	top: 50%;
+	margin-top: - round(image-height('../img/logo.png') / 2);
+	@include background-size(100% 100%);
+}
+
+@media screen  and (max-width : $maxWidth){
+	$k : 0.84;
+	
+	.logo{
+		width: round(image-width('../img/logo.png')*$k);
+		height: round(image-height('../img/logo.png')*$k);
+		margin-top: - round(image-height('../img/logo.png')*$k / 2);
+	}
+}
+
+/* ==========================================================================
+   cart
+   ========================================================================== */
+
+.cart-btn{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: $cbw;
+	height: $hh;
+	line-height: $hh + 4px;
+	text-indent: 55px;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 18px;
+	text-decoration: none;	
+	font-family: 'Aleo';
+	@include inline('../img/cart__ico.png', no-repeat, 22px, center, #f32a64);
+}
+
+@media screen  and (max-width : $maxWidth) {
+	.cart-btn{
+		width: $cbw_s;
+	}
+}
+
+@media screen  and (max-height : $maxHeight) {
+	.cart-btn{
+		height: $hh_s;
+		line-height: $hh_s;
+	}
+}
+
+/* ==========================================================================
+   userbar
+   ========================================================================== */
+
+.userbar{
+	$c : #ccc;
+	$c_h : #11cce2;
+	
+	position: absolute;
+	top: 0;
+	height: 100%;
+	right: $cbw + 30px;
+	overflow: hidden;
+	
+	.userbar__l{
+		display: inline-block;
+		vertical-align: middle;
+		text-indent: -99999px;
+		overflow: hidden;
+		@include transition(background $t);
+		
+		&:hover{
+			background-color: $c_h;
+		}
+	}
+
+	.userbar__l_login{
+		@include inline-block('../img/user__ico.png', no-repeat, 0, 0, $c);
+		margin-right: 20px;
+	}
+
+	.userbar__l_wishlist{
+		@include inline-block('../img/wishlist__ico.png', no-repeat, 0, 0, $c);
+	}
+}
+
+@media screen  and (max-width : $maxWidth) {
+	.userbar{
+		right: $cbw_s + 20px;
+	}
+}
+
+/* ==========================================================================
+   nav
+   ========================================================================== */
+
+.nav{
+	position: absolute;
+	left: 50px + image-width('../img/logo.png') + 10px;
+	right: $cbw + 80px + 10px + 30px;
+	top: 0;
+	text-align: center;
+	height: 100%;
+	text-align: center;
+	white-space: nowrap;
+
+	.nav__l{
+		text-transform: uppercase;
+		color: #555;
+		padding: 0 10px;		
+		font-size: 18px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-family: 'Oswald Light';
+	}
+}
+
+@media screen and (max-width : 1145px) {
+	.nav{
+		.nav__l{
+			padding: 0 5px;
+		}
+	}	
+}
+
+
+@media screen and (max-width : $maxWidth) {
+	$k : 0.84;
+	.nav{
+		left: 50px + round(image-width('../img/logo.png')*$k) + 10px;
+		right: $cbw_s + 80px + 10px + 30px;
+	}	
+}
+
+/* ==========================================================================
+   search
+   ========================================================================== */
+
+.search{
+	display: inline-block;
+	height: 100%;
+	width: 35px;
+	position: relative;
+	vertical-align: top;
+	z-index: 3;
+	
+	.search__tumbler,
+	.search__btn{
+		display: inline-block;
+		vertical-align: middle;
+		text-indent: -99999px;
+		height: 35px;
+		width: 35px;
+		border: 0;
+		outline: 0;
+		@include inline('../img/search__ico.png', no-repeat, center, center);
+	}
+
+	.search__btn{
+		display: none;
+	}
+
+	.search__txt{
+		font-family: 'Open Sans Light';
+		text-indent: 20px;
+		font-size: 14px;
+		position: absolute;
+		outline: 0;
+		left: 43px;
+		width: 0;
+		height: 15px;
+		padding: 5px 0 5px 0;
+		top: 50%;
+		margin-top: -13px;
+		background: #FFF;
+		border: 0;
+		border-bottom: 1px solid #11cce2;
+		@include transition(width .3s);
+	}
+
+	.search__close{
+		width: 20px;
+		height: 20px;
+		border: 0;
+		outline: 0;
+		@include inline('../img/search-close__ico.png', no-repeat, center, center);
+		position: absolute;
+		top: 50%;
+		margin-top: -10px;
+		@include opacity(0);
+		display: none;
+		overflow: hidden;
+		text-indent: -9999px;
+	}
+}
+
+.search_open{
+	.search__tumbler{
+		display: none;
+	}
+	.search__btn{
+		display: inline-block
+	}
+
+	.search__txt{
+	    padding-right: 40px;
+		width: 475px - 40px;
+	}
+
+	.search__close{
+		@include opacity(1);
+		right: -480px;
+		display: block;
+	}
+}
+
+@media screen and (max-width : 1145px) {
+	.search_open{
+		.search__txt{
+			width: 380px;
+		}
+		.search__close{
+			right: -420px;
+		}
+	}
+}
+
+@media screen and (min-width : 1600px) {
+	.search{
+		width: 400px;
+		margin-right: 20px;
+		
+		.search__close,
+		.search__tumbler{
+			display: none;
+		}
+
+		.search__btn{
+			display: inline-block;
+		}
+
+		.search__txt{
+			position: relative;
+			display: inline-block;
+			padding: 5px 10px;
+			text-indent: 0;
+			width: 335px;
+			left: 0;
+			margin-left: 5px;
+		}
+	}
+}
+
+
+/* ==========================================================================
+   help
+   ========================================================================== */
+
+.help{
+	text-indent: 60px;
+	line-height: $fh;
+	font-size: 18px;
+	color: #fff;
+	font-family: 'Aleo Light';
+	cursor: pointer;
+	@include inline('../img/help__ico.png', no-repeat, 30px, center, #333);
+}
+
+@media screen  and (max-height : $maxHeight) {
+	.help{
+		line-height: $fh_s;
+	}
+}
+
+/* ==========================================================================
+   footernav
+   ========================================================================== */
+   
+.footernav{
+	position: absolute;
+	top: 0;
+	left: 200px;
+	height: 100%;
+	
+	.footernav-l{
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #555;
+		font-family: 'Oswald Light';
+		font-size: 15px;
+		margin-right: 30px;
+		
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
+
+/* ==========================================================================
+   lang
+   ========================================================================== */
+
+.lang{
+	display: inline-block;
+	position: absolute;
+	left: 50px;
+	top: 0;
+	height: 100%;
+	font-family: 'Oswald Book';
+	color: #555;
+	text-transform: uppercase;
+	font-size: 14px;
+	text-decoration: none;
+	padding: 0 11px 0 24px;
+	position: relative;
+	height: 100%;
+	
+	&:after{
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		border-top: 0;
+		border-bottom: 3px solid #555;
+		border-left: 3px solid transparent;
+		border-right: 3px solid transparent;
+		margin-top: -2px;
+	} 	
+}
+
+.lang_usa{
+	@include inline('../img/usa__ico.png', no-repeat, 0, center);
+}
+
+/* ==========================================================================
+   social
+   ========================================================================== */
+
+.social{
+	position: absolute;
+	right: $cw + 20px + 150px;
+	top: 0;
+	
+	.social__l{
+		display: inline-block;
+		text-indent: -9999px;
+		overflow: hidden;
+		vertical-align: middle;
+		margin: 0 10px;
+		@include opacity(5/10);
+		@include transition(opacity $t);
+		
+		&:hover{
+			@include opacity(1);
+		}
+	}
+	
+	$icons : gp, yt, fb, tw;
+		
+	@each $icon in $icons{
+		.social__l_#{$icon}{		
+			@include inline-block('../img/#{$icon}__ico.png');	
+		}
+	}
+}
+
+@media screen  and (max-width : $maxWidth) {
+	.social{
+		right: $cw_s + 20px + 90px;
+	}
+}
+
+/* ==========================================================================
+   contacts
+   ========================================================================== */
+
+.contacts{
+	position: absolute;
+	right: $cw + 20px;
+	top: 0;
+	
+	$icons : mail, map;
+	
+	.contacts__map{
+		@include opacity(7/10);
+	}
+
+	@each $icon in $icons{
+		.contacts__#{$icon}{	
+			display: inline-block;
+			text-indent: -99999px;
+			overflow: hidden;
+			vertical-align: middle;
+			margin: 0 5px;	
+			@include inline-block('../img/#{$icon}__ico.png');	
+			@include transition(opacity .3s);
+			
+			&:hover{
+				@include opacity(5/10);
+			}
+		}
+	}
+}
+
+
+@media screen  and (max-width : $maxWidth) {
+	.contacts{
+		right: $cw_s + 20px;
+	}
 }
