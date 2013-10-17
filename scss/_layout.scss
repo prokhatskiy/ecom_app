@@ -17,6 +17,14 @@ body{
 	min-width: 990px;	
 }
 
+.l-login,
+.l-user,
+.l-cart,
+.l-wishlist,
+.l-settings{
+	background-color: #FFF;
+}
+
 .l-wrapper,
 .l-brands,
 .l-header,
@@ -189,6 +197,7 @@ body{
 .state_wishlist,
 .state_user,
 .state_login,
+.state_menu,
 .state_settings{
 	.l-overlay{
 		display: block;
@@ -219,6 +228,7 @@ body{
 	.l-settings{
 		bottom: 0;
 		z-index: 6;
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 }
 
@@ -240,6 +250,7 @@ body{
 	.l-login{
 		right: 0;
 		z-index: 6;
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
@@ -251,6 +262,7 @@ body{
 	.l-user{
 		right: 0;
 		z-index: 6;
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
@@ -262,6 +274,7 @@ body{
 	.l-cart{
 		right: 0;
 		z-index: 6;
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
@@ -273,6 +286,7 @@ body{
 	.l-wishlist{
 		right: 0;
 		z-index: 6;
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
@@ -286,6 +300,53 @@ body{
 	.state_wishlist{		
 		.l-content{
 			margin-left: -$cw_s;
+		}
+	}
+}
+
+.state_menu{
+	.menu{
+		z-index: 6;
+	}
+
+	.l-header{
+		z-index: 7;
+	}
+}
+
+.state_menu_women{
+	.menu_women{
+		display: block;
+	}
+}
+
+$states : women, men, kids, home;
+
+@each $state in $states{
+	.state_menu_#{$state}{
+		.menu_#{$state}{
+			top: $hh;
+		}
+
+		.nav__l_#{$state}{
+			color: #11cce2 !important;
+			position: relative;
+			&:after{
+				content: '';
+				@include inline-block('../img/menu__arr.png');
+				position: absolute;
+				left: 50%;
+				bottom: -1px;
+				margin-left: - round(image-width('../img/menu__arr.png')/2);
+			}
+		}
+	}
+
+	@media screen and (max-height : $maxHeight) {
+		.state_menu_#{$state}{
+			.menu_#{$state}{
+				top: $hh_s;
+			}
 		}
 	}
 }

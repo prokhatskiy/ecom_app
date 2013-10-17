@@ -15,7 +15,9 @@
     "backbone" : "~1.0.0",
     "jquery" : "~2.0",
     "jquery" : "~2.0",
-    "requirejs" : "~1.0"
+    "iscroll" : "~5.0.0",
+    "requirejs" : "~1.0",
+    "malihu-custom-scrollbar-plugin-bower" : "*"
   },
 
   "ignore": [
