@@ -460,9 +460,9 @@
 	top: 0;
 	
 	.social__l{
+		position: relative;
 		display: inline-block;
 		text-indent: -9999px;
-		overflow: hidden;
 		vertical-align: middle;
 		margin: 0 10px;
 		@include opacity(5/10);
@@ -470,7 +470,18 @@
 		
 		&:hover{
 			@include opacity(1);
+
+			.message{
+				top: -92px;
+			}
 		}
+		.message{
+			top: 60px;
+			padding-left: 17px;
+			padding-right: 17px;
+			text-indent: 0;
+		}
+
 	}
 	
 	$icons : gp, yt, fb, tw;
@@ -485,6 +496,97 @@
 @media screen  and (max-width : $maxWidth) {
 	.social{
 		right: $cw_s + 20px + 90px;
+	}
+}
+
+/* ==========================================================================
+   message
+   ========================================================================== */
+
+.message{
+	display: block;
+	position: absolute;
+	top: -80px;
+	padding: 17px 0;
+	max-height: 38px;
+	text-align: center;
+	font-family: 'Open Sans';
+	font-size: 13px;
+	color: #fff;
+	line-height: 18px;
+	@include box-shadow(0 0 10px rgba(0, 0, 0, 4/10));
+
+	&:after{
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		border-bottom: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		margin-bottom: -8px;
+		margin-left: -8px;
+	}
+}
+
+.message__lang{
+	left: -48px;
+	min-width: 190px;
+	background-color: #333;
+
+	&:after{
+		border-top: 8px solid #333;
+	}
+
+	.caps{
+		color: #11cce2;
+	}
+	.small{
+		display: block;
+		font-size: 11px;
+		color: #a3a3a3;
+	}
+}
+
+.message__gp{
+	left: -66px;
+	width: 120px;
+	background-color: #dd4b39;
+
+	&:after{
+		border-top: 8px solid #dd4b39;
+	}
+}
+
+.message__yt{
+	left: -56px;
+	width: 100px;
+	background-color: #cc2020;
+
+	&:after{
+		border-top: 8px solid #cc2020;
+	}
+}
+
+.message__fb{
+	left: -87px;
+	width: 150px;
+	background-color: #3b5998;
+
+	&:after{
+		border-top: 8px solid #3b5998;
+	}
+}
+
+.message__tw{
+	left: -82px;
+	width: 140px;
+	background-color: #1bcaff;
+
+	&:after{
+		border-top: 8px solid #1bcaff;
 	}
 }
 
