@@ -113,6 +113,11 @@
 		});
 	}
 	$(window).on('resize', menu);
+
+	//hide message
+	setTimeout(function() {
+		$('#messageLang').addClass('hide');
+	}, 10000);
 }());
 
 function initScroll() {		 	

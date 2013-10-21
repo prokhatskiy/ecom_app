@@ -291,6 +291,16 @@
 	.userbar__l_wishlist{
 		@include inline-block('../img/wishlist__ico.png', no-repeat, 0, 0, $c);
 	}
+
+	.userbar__l_active.userbar__l_wishlist{
+		line-height: image-height('../img/wishlist__ico_active.png');
+		font-size: 11px;
+		color: #333;
+		text-indent: 0;
+		text-align: center;
+		@include inline-block('../img/wishlist__ico_active.png', no-repeat, 0, 0);
+		text-decoration: none;
+	}
 }
 
 @media screen  and (max-width : $maxWidth) {
@@ -455,12 +465,30 @@
 	}
 }
 
+@media screen and (max-height : $maxHeight) {
+	.search{
+		.search__result{
+			top: 61px - ($hh - $hh_s);
+		}
+	}
+}
+
+.search_load{
+	.search__btn{
+		display: none;
+	}
+
+	.search__close{
+		@include inline('../img/search__loader.gif', no-repeat, right, center, #fff);
+	}
+}
+
 .search_open{
 	.search__tumbler{
 		display: none;
 	}
 	.search__btn{
-		display: inline-block
+		display: inline-block;
 	}
 
 	.search__txt{
@@ -694,6 +722,7 @@
 	left: -48px;
 	min-width: 190px;
 	background-color: #333;
+	@include transition(all $t);
 
 	&:after{
 		border-top: 8px solid #333;
@@ -707,7 +736,13 @@
 		font-size: 11px;
 		color: #a3a3a3;
 	}
+
+	&.hide{
+		top: -200px;
+		@include opacity(0);
+	}
 }
+
 
 .message__gp{
 	left: -66px;
@@ -1263,7 +1298,7 @@
 	}
 
 	.cart-caption{
-		@include inline('../img/wishlis-activet__ico.png', no-repeat, 11px, center);
+		@include inline('../img/wishlist__ico_active.png', no-repeat, 11px, center);
 		padding-left: 55px;
 		color: #333;
 		border-bottom: 1px solid #eaeaea;
