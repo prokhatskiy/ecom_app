@@ -296,6 +296,14 @@ table {
   font-weight: normal;
   font-style: normal; }
 
+html, body {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  line-height: 18px; }
+
+a {
+  color: #454545; }
+
 /* ==========================================================================
    layout
    ========================================================================== */
@@ -1050,6 +1058,42 @@ body {
     display: none;
     overflow: hidden;
     text-indent: -9999px; }
+  .search .search__result {
+    display: none;
+    position: absolute;
+    left: 43px;
+    top: 61px;
+    width: 420px;
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.1); }
+  .search .search__result-i,
+  .search .search__result-t {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    font-size: 12px;
+    padding: 0;
+    line-height: 17px;
+    text-align: left; }
+    .search .search__result-i:last-child,
+    .search .search__result-t:last-child {
+      padding-bottom: 10px; }
+  .search .search__result-t {
+    padding-top: 10px;
+    text-transform: uppercase; }
+    .search .search__result-t:first-child {
+      padding-top: 0; }
+    .search .search__result-t .search__result-l {
+      color: #888; }
+  .search .search__result-l {
+    text-decoration: none;
+    color: #454545;
+    display: block;
+    padding: 5px 18px; }
+  .search .search__result-i:hover {
+    background-color: #f6f6f6; }
 
 .search_open .search__tumbler {
   display: none; }
@@ -1058,6 +1102,9 @@ body {
 .search_open .search__txt {
   padding-right: 40px;
   width: 435px; }
+.search_open .search__result {
+  display: block;
+  width: 475px; }
 .search_open .search__close {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -1067,6 +1114,9 @@ body {
 @media screen and (max-width: 1145px) {
   .search_open .search__txt {
     width: 380px; }
+  .search_open .search__result {
+    display: block;
+    width: 420px; }
   .search_open .search__close {
     right: -420px; } }
 @media screen and (min-width: 1600px) {
@@ -1076,6 +1126,9 @@ body {
     .search .search__close,
     .search .search__tumbler {
       display: none; }
+    .search .search__result {
+      display: block;
+      width: 358px; }
     .search .search__btn {
       display: inline-block; }
     .search .search__txt {

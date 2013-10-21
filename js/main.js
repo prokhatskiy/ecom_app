@@ -118,7 +118,9 @@
 function initScroll() {		 	
 	 $('.scroll').mCustomScrollbar({
 	 	autoHideScrollbar: true, 
-	 	autoDraggerLength : true
+	 	autoDraggerLength : true,
+	 	scrollInertia: 10,
+	 	mouseWheelPixels: 50
 	 });
 }
 
