@@ -61,10 +61,30 @@
    ========================================================================== */
 
 .banner{
-	@include background-size(cover);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include background-size(cover !important);
 	background-repeat: no-repeat;
 	background-position: center;
+	@include transition(all .3s);
 	
+	&:hover{
+		width: 120%;
+		height: 120%;
+		top: -10%;
+		left: -10%;
+		
+		.banner__inner{
+			width: 80%;
+			height: 80%;
+			top: 10%;
+			left: 10%;
+		}
+	}
+
 	.banner__inner{
 		display: block;
 		position: absolute;
@@ -73,8 +93,81 @@
 		width: 100%;
 		height: 100%;
 		@include background-size(80% auto);
+		@include transition(all $t);
 		background-repeat: no-repeat;
 		background-position: center center;
+		z-index: 1;
+	}
+
+	.banner__btn{
+		position: absolute;		
+		left: 50%;
+		margin-left: -75px;		
+		width: 130px;
+		line-height: 42px;
+		height: 42px;
+		border: 2px solid #29b8cb;
+		color: #29b8cb;
+		font-family: 'Oswald Book';
+		background-color: transparent;
+		font-size: 17px;
+		text-transform: uppercase;
+		@include transition(all $t);
+		text-align: center;
+		text-decoration: none;
+		
+		&:hover{
+			border-color: #f32a64;
+			color: #f32a64;
+		}
+	}
+
+	.banner__btn_quicklook{
+		top: 50%;
+		margin-top: -21px;
+	}
+
+	.banner__btn_shopnow{
+		top: 70%;
+		width: 160px;
+		height: 45px;
+		margin-left: -80px;
+		font-size: 20px;
+		line-height: 45px;
+		border: 3px solid #f32a64;
+		color: #f32a64;
+		position: absolute;
+		top: 55%;
+		z-index: 3;
+		
+		&:hover{
+			border-color: #29b8cb;
+			color: #29b8cb;
+		}
+	}
+
+}
+
+.banner_hover{	
+	.banner__hover{
+		@include opacity(0);
+		background: rgba(#fff, 2/10);
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&:hover{
+		.banner__inner{
+			@include opacity(0);
+		}
+
+		.banner__hover{
+			@include opacity(1);
+		}
 	}
 }
 
@@ -103,6 +196,7 @@
 		background-position: center 95%;
 	}
 }
+
 /* ==========================================================================
    logo
    ========================================================================== */
@@ -1211,6 +1305,22 @@
 .pop-message_body small{
   display: inline-block;
   margin-bottom: 21px;
+}
+
+.item_body .item_body_img_wide{
+	display: none;
+}
+
+@media screen and (max-width : $maxWidth) {
+	.item_body{
+		.item_body_img{
+			display: none;
+		}	
+
+		.item_body_img_wide{
+			display: block;
+		}
+	}
 }
 
 /* ==========================================================================

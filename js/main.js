@@ -46,7 +46,7 @@
 		$body : $('body')
 	}
 
-	$(document).on('ready', function() {	
+	$(window).on('load', function() {	
 		router = new Router();
 		Backbone.history.start();
 

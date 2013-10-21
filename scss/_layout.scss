@@ -70,10 +70,11 @@ body{
 	top: 0;
 	z-index: 2;
 	position: relative;
+	@include box-shadow(0 0 20px rgba(0, 0, 0, 1/10));
 }
 
 .l-content{
-	@include transition(margin $t);
+	@include transition(all $t);
 }
 
 .l-content{
@@ -94,6 +95,7 @@ body{
 	height: $fh;
 	line-height: $fh;
 	z-index: 2;
+	@include box-shadow(0 0 20px rgba(0, 0, 0, 2/10));
 }
 
 .l-help{
@@ -254,7 +256,8 @@ body{
 	}
 
 	.l-content{
-		margin-left: -$uw;
+		left: -$uw;
+		right: $uw; 
 	}
 }
 
@@ -266,7 +269,8 @@ body{
 	}
 
 	.l-content{
-		margin-left: -$uw;
+		left: -$uw;
+		right: $uw; 
 	}
 }
 
@@ -278,7 +282,8 @@ body{
 	}
 
 	.l-content{
-		margin-left: -$cw;
+		left: -$cw;
+		right: $cw; 
 	}
 }
 
@@ -290,7 +295,8 @@ body{
 	}
 
 	.l-content{
-		margin-left: -$cw;
+		left: -$cw;
+		right: $cw; 
 	}
 }
 
@@ -299,7 +305,8 @@ body{
 	.state_cart,
 	.state_wishlist{		
 		.l-content{
-			margin-left: -$cw_s;
+			left: -$cw_s;
+			right: $cw_s; 
 		}
 	}
 }
@@ -387,7 +394,8 @@ $states : women, men, kids, home;
 	}
 	
 	.l-grid__i{
-		position: absolute;;
+		position: absolute;
+		overflow: hidden;
 	}
 
 	.l-grid__i_b1{
