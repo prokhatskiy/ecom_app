@@ -31,7 +31,7 @@
 							<a href="/ctalogue" class="banner__btn banner__btn_shopnow link">
 								Shop Now!
 							</a>
-						</div>						
+						</div>
 					</div>
 				</div>
 				<div class="l-grid__col l-grid__col_w2">
@@ -43,24 +43,24 @@
 									Quick Look
 								</a>
 							</div>
-						</div>						
+						</div>
 					</div>
 					<div class="l-grid__i l-grid__i_b3">
 						<div class="banner banner_b3" style="background-image: url('temp/banner__3.jpg');">
 							<a href="/catalogue" class="banner__inner link" style="background-image: url('temp/banner-text-3.png');"></a>
-						</div>						
+						</div>
 					</div>
 					<div class="l-grid__i l-grid__i_b4">
 						<div class="banner banner_b4" style="background-image: url('temp/banner__4.jpg');">
 							<a href="/catalogue" class="banner__inner link" style="background-image: url('temp/banner-text-4.png');"></a>
-						</div>						
+						</div>
 					</div>
 				</div>
 				<div class="l-grid__col l-grid__col_w1">
 					<div class="l-grid__i l-grid__i_b5">
 						<div class="banner banner_b5" style="background-image: url('temp/banner__5.jpg');">
 							<a href="/catalogue" class="banner__inner link" style="background-image: url('temp/banner-text-5.png');"></a>
-						</div>						
+						</div>
 					</div>
 					<div class="l-grid__i l-grid__i_b6">
 						<div class="banner banner_b6 banner_hover" style="background-image: url('temp/banner__6.jpg');">
@@ -70,9 +70,9 @@
 									Quick Look
 								</a>
 							</div>
-						</div>						
+						</div>
 					</div>
-				</div>				
+				</div>
 			</div>
 			<!-- /.l-grid -->
 		</section>
@@ -355,11 +355,28 @@
 				</a>
 			</div>
 			<div class="contacts">
-				<a href="mialto:example@epam.com" class="contacts__mail">Send Email</a>
+				<a href="#" class="contacts__mail">Send Email</a>
+				<div class="contacts__subscribe">
+					<input type="text" class="contacts__subscribe-email" placeholder="enter your e-mail adress">
+					<input type="button" class="contacts__subscribe-send" value="Subscribe">
+				</div>
 				<a href="#" class="contacts__map">Map</a>
+				<div class="contacts__location">
+					<span class="message message__lang message__location">Search location.<span class="small">Type your country below.</span></span>
+					<input type="button" class="contacts__location-send">
+					<input type="text" class="contacts__location-name" placeholder="search your location">
+				</div>
 			</div>
 		</footer>
 		<!-- /.l-footer -->
+		<!-- .l-mapstore -->
+		<section class="l-mapstore">
+			<div class="mapstore__content" style="background-image: url('temp/map.jpg');">
+				<a class="mapstore__content_close link_close"></a>
+				<img src="temp/navigator.png" alt="" class="navigator">
+			</div>
+		</section>
+		<!-- /.l-mapstore -->
 		<!-- .l-cart -->
 		<aside class="l-cart cart">
 			<div class="cart-caption">
@@ -719,7 +736,7 @@
 				</div>
 			</div>
 		</aside>
-		<!-- /.l-wishlist -->    
+		<!-- /.l-wishlist -->
 		<!-- .l-user -->
 		<aside class="l-user user">
 			<div class="user__head">				
@@ -778,7 +795,7 @@
 				</div>
 			</div>
 		</aside>
-		<!-- /.l-user --> 
+		<!-- /.l-user -->
 		<!-- .l-login -->
 		<aside class="l-login login">
 			<div class="login-caption">
@@ -811,30 +828,47 @@
 				</div>
 			</div>
 		</aside>
-		<!-- /.l-login -->   
+		<!-- /.l-login -->
 		<!-- .l-settings -->
 		<aside class="l-settings settings">
 			<div class="settings-caption">
 				<a class="settings-caption_close link_close"></a>
-				<span class="settings-caption_message">Hi there! It seems you're in the USA, so we set English and USD($) as a default.</span>
+				<span class="settings-caption__message">Hi there! It seems you're in the USA, so we set English and USD($) as a default.</span>
 			</div>
 			<div class="settings-body">
-				<div class="settings-body_item">
-					<img src="temp/settings-shipping-to.png" />
+				<div class="settings-body__item">
+					<div class="settings-body__label">shipping to</div>
+					<div class="select settings__select">
+						<ul class="select__ul">
+							<li class="select__li"><img src="img/usa__ico.png" /> USA</li>
+							<li class="select__li"><img src="img/usa__ico.png" /> USAUSA</li>
+							<li class="select__li"><img src="img/usa__ico.png" /> USA</li>
+						</ul>
+					</div>
 				</div>
-				<div class="settings-body_item">
-					<img src="temp/settings-language.png" />
+				<div class="settings-body__item">
+					<div class="settings-body__label">LAnguage:</div>
+					<div class="select settings__select">
+						<ul class="select__ul">
+							<li class="select__li">English</li>
+						</ul>
+					</div>
 				</div>
-				<div class="settings-body_item">
-					<img src="temp/settings-currency.png" />
+				<div class="settings-body__item">
+					<div class="settings-body__label">Currency:</div>
+					<div class="select settings__select">
+						<ul class="select__ul">
+							<li class="select__li">USD ($)</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</aside>
-		<!-- /.l-settings -->    
+		<!-- /.l-settings -->
 		<!-- .overlay -->
 		<div class="l-overlay link_close"></div>
-		<!-- /.overlay --> 
-        </div>
+		<!-- /.overlay -->
+		</div>
 <script src="components/jquery/jquery.min.js"></script>
 <script src="components/underscore/underscore-min.js"></script>
 <script src="components/backbone/backbone-min.js"></script>
@@ -852,6 +886,6 @@
 	<div class="l-help help">
 		Assistant
 	</div>
-	<!-- /.l-help -->  
-    </body>
+	<!-- /.l-help -->
+	</body>
 </html>
