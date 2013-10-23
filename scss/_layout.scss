@@ -7,14 +7,14 @@
    ========================================================================== */
 
 html,
-body {
+body{
 	position: relative;
 	height: 100%;
 }
 
 body{
 	min-height: 300px;
-	min-width: 990px;	
+	min-width: 990px;
 }
 
 .l-login,
@@ -34,7 +34,8 @@ body{
 .l-wishlist,
 .l-user,
 .l-login,
-.l-settings{
+.l-settings,
+.l-mapstore{
 	position: absolute;
 }
 
@@ -54,7 +55,7 @@ body{
 	@include transition(top $t);
 	height: $hh;
 	line-height: $hh;
-	width: 100%;	
+	width: 100%;
 	left: 0;
 	right: 0;
 }
@@ -98,6 +99,21 @@ body{
 	@include box-shadow(0 0 20px rgba(0, 0, 0, 2/10));
 }
 
+.l-mapstore{
+	z-index: 1;
+	top: 99999px;
+	bottom: $fh;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	position: absolute;
+	@include transition(all $t);
+
+	&.active{
+		top: $hh;
+	}
+}
+
 .l-help{
 	position: absolute;
 	z-index: 7;
@@ -129,6 +145,13 @@ body{
 	.l-help{
 		line-height: $fh_s;
 		height: $fh_s;
+	}
+	.l-mapstore{
+		bottom: $fh_s;
+
+		&.active{
+			top: $hh_s;
+		}
 	}
 }
 
@@ -257,7 +280,7 @@ body{
 
 	.l-content{
 		left: -$uw;
-		right: $uw; 
+		right: $uw;
 	}
 }
 
@@ -270,7 +293,7 @@ body{
 
 	.l-content{
 		left: -$uw;
-		right: $uw; 
+		right: $uw;
 	}
 }
 
@@ -283,7 +306,7 @@ body{
 
 	.l-content{
 		left: -$cw;
-		right: $cw; 
+		right: $cw;
 	}
 }
 
@@ -296,17 +319,17 @@ body{
 
 	.l-content{
 		left: -$cw;
-		right: $cw; 
+		right: $cw;
 	}
 }
 
 
 @media screen and (max-width : $maxWidth) {
 	.state_cart,
-	.state_wishlist{		
+	.state_wishlist{
 		.l-content{
 			left: -$cw_s;
-			right: $cw_s; 
+			right: $cw_s;
 		}
 	}
 }
@@ -419,8 +442,8 @@ $states : women, men, kids, home;
 		top: 49.99%;
 	}
 
-	.l-grid__i_b3{		
-		left: 0;		
+	.l-grid__i_b3{
+		left: 0;
 	}
 
 	.l-grid__i_b4{
@@ -488,6 +511,3 @@ $states : women, men, kids, home;
 		}
 	}
 }
-
-
-

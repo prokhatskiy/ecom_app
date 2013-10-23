@@ -100,9 +100,9 @@
 	}
 
 	.banner__btn{
-		position: absolute;		
+		position: absolute;
 		left: 50%;
-		margin-left: -75px;		
+		margin-left: -75px;
 		width: 130px;
 		line-height: 42px;
 		height: 42px;
@@ -316,7 +316,7 @@
 	.nav__l{
 		text-transform: uppercase;
 		color: #555;
-		padding: 0 10px;		
+		padding: 0 10px;
 		font-size: 18px;
 		text-align: center;
 		text-decoration: none;
@@ -646,8 +646,14 @@
 	$icons : gp, yt, fb, tw;
 		
 	@each $icon in $icons{
-		.social__l_#{$icon}{		
-			@include inline-block('../img/#{$icon}__ico.png');	
+		.social__l_#{$icon}{
+			@include inline-block('../img/#{$icon}__ico.png');
+		}
+	}
+		
+	@each $icon in $icons{
+		.social__l_#{$icon}:hover{
+			@include inline-block('../img/#{$icon}__ico__active.png');
 		}
 	}
 }
@@ -765,13 +771,13 @@
 	}
 
 	@each $icon in $icons{
-		.contacts__#{$icon}{	
+		.contacts__#{$icon}{
 			display: inline-block;
 			text-indent: -99999px;
 			overflow: hidden;
 			vertical-align: middle;
 			margin: 0 5px;	
-			@include inline-block('../img/#{$icon}__ico.png');	
+			@include inline-block('../img/#{$icon}__ico.png');
 			@include transition(opacity .3s);
 			
 			&:hover{
@@ -779,6 +785,82 @@
 			}
 		}
 	}
+
+	.contacts__subscribe{
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: -999px;
+		padding-left: 25px;
+		height: 38px;
+		white-space: nowrap;
+		@include transition(right .5s);
+		@include inline('../img/mail__ico__active.png', no-repeat, 0, 13px, #fff);
+
+		&.active{
+			right: 0;
+		}
+
+		.contacts__subscribe-email{
+			width: 190px;
+			padding: 0 10px;
+			cursor: #999;
+			border: none;
+			border-bottom: 1px solid #11cce2;
+		}
+
+		.contacts__subscribe-send{
+			margin-left: 4px;
+			padding: 2px 10px;
+			font-family: 'Oswald Light';
+			font-size: 12px;
+			color: #11cce2;
+			text-transform: uppercase;
+			border: 2px solid #11cce2;
+			background-color: #fff;
+		}
+	}
+
+	.contacts__location{
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: -999px;
+		height: 38px;
+		white-space: nowrap;
+		@include transition(right .5s);
+		background-color: #fff;
+
+		&.active{
+			right: 0;
+		}
+
+		.contacts__location-name{
+			width: 360px;
+			padding: 0 10px;
+			cursor: #999;
+			border: none;
+			border-bottom: 1px solid #11cce2;
+		}
+
+		.contacts__location-send{
+			margin-right: 10px;
+			width: 20px;
+			border: none;
+			@include inline('../img/map__ico__active.png', no-repeat, center, 0);
+		}
+
+		.message__location{
+			top: 99px;
+			@include transition(top .5s);
+
+			&.active{
+				top: -80px;
+			}
+		}
+
+	}
+
 }
 
 
@@ -787,6 +869,43 @@
 		right: $cw_s + 30px;
 	}
 }
+
+/* ==========================================================================
+   mapstore
+   ========================================================================== */
+.mapstore__content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	@include background-size(cover !important);
+	background-repeat: no-repeat;
+	background-position: center;
+	@include transition(all .3s);
+
+	.navigator{
+		margin: 30px 0 0 20px;
+	}
+
+	.mapstore__content_close{
+		display: block;
+		float: right;
+		width: 40px;
+		height: 40px;
+		border: 0;
+		outline: 0;
+		margin: 31px 65px 0 0;
+		cursor: pointer;
+		overflow: hidden;
+		text-indent: -9999px;
+		@include inline('../img/map-close.png', no-repeat, center, center, #fff);
+	}
+}
+
 
 /* ==========================================================================
    login
@@ -804,59 +923,59 @@
 	}
 
 	.login-caption {
-	  height: $hh;
-	  line-height: $hh;
-	  border-bottom: 1px solid #eaeaea;
-	  position: relative;
-	  font-family: 'Aleo';
-	  font-size: 15px;
-	  color: #333;
-	  text-transform: uppercase;
-	  padding-left: 75px;
-	  @include inline('../img/userbar__ico.png', no-repeat, 25px, center);
-	  
-	  strong{
-	  	font-family: 'Aleo Bold';
-	  }
+		height: $hh;
+		line-height: $hh;
+		border-bottom: 1px solid #eaeaea;
+		position: relative;
+		font-family: 'Aleo';
+		font-size: 15px;
+		color: #333;
+		text-transform: uppercase;
+		padding-left: 75px;
+		@include inline('../img/userbar__ico.png', no-repeat, 25px, center);
+
+		strong{
+		font-family: 'Aleo Bold';
+		}
 	}
 
 	.login-caption__l_close{
-	    position: absolute;
-	    top: 50%;
-	    margin-top: - round(image-height('../img/search-close__ico.png')/2);
-	    right: 22px;
-	    border: 0;
-	    outline: 0;
-	    @include inline-block('../img/search-close__ico.png');
-	    overflow: hidden;
-	    text-indent: -9999px;
+		position: absolute;
+		top: 50%;
+		margin-top: - round(image-height('../img/search-close__ico.png')/2);
+		right: 22px;
+		border: 0;
+		outline: 0;
+		@include inline-block('../img/search-close__ico.png');
+		overflow: hidden;
+		text-indent: -9999px;
 	}
 
 	.login-body_message{
-	  padding-top: 61px;
-	  margin: 0 auto;
-	  text-align: center;
-	  color: #333333;
-	  line-height: 18px;
-	  font-size: 12px;
-	  text-align: center;
-	  padding: 25px 0;
-	  font-family: 'Aleo';
+		padding-top: 61px;
+		margin: 0 auto;
+		text-align: center;
+		color: #333333;
+		line-height: 18px;
+		font-size: 12px;
+		text-align: center;
+		padding: 25px 0;
+		font-family: 'Aleo';
 	  
-	  h1{
-	  	font-family: 'Aleo';
-	  	margin: 0 0 20px 0;
-	  	font-weight: normal;
-	  	font-size: 24px;
-	  }
+		h1{
+			font-family: 'Aleo';
+			margin: 0 0 20px 0;
+			font-weight: normal;
+			font-size: 24px;
+		}
 		
-	  p{
-	  	margin: 0;
-	  }
+		p{
+			margin: 0;
+		}
 
-	  strong{
-	  	font-family: 'Aleo Strong';
-	  }
+		strong{
+			font-family: 'Aleo Strong';
+		}
 	}
 
 	.login-body_form form{
@@ -977,43 +1096,109 @@
    settings
    ========================================================================== */
 
-.settings .settings-caption
-{
-  margin-top: 30px;
-}
-.settings .settings-caption .settings-caption_message
-{
-  font-size: 22px;
-  font-family: "Aleo";
-  color: #333333;
-  margin-left: 105px;
-  letter-spacing: 0.025em;
-}
+.settings .settings-caption{
+	margin-top: 30px;
 
-.settings .settings-caption .settings-caption_close 
-{
-    display: block;
-    float: right;
-    width: 20px;
-    height: 20px;
-    border: 0;
-    outline: 0;
-   margin-right: 21px;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCOEU1RkE3NzMyNzgxMUUzOUIyODgyMEM3QzREMEMwMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCOEU1RkE3ODMyNzgxMUUzOUIyODgyMEM3QzREMEMwMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI4RTVGQTc1MzI3ODExRTM5QjI4ODIwQzdDNEQwQzAzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI4RTVGQTc2MzI3ODExRTM5QjI4ODIwQzdDNEQwQzAzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m8F3LQAAAHdJREFUeNpiaWpqCmJgYNgHxB8YcAMBIHZigiqMhgrgUgiS38cENXEpDg0whSD5D0xQQWwaUBSCBJiQTEHWII+uEF0xTMMWIK6A0iieZsLiRh8g7oDSArgUI7vxITZPM+HyDDZPM+FQiM3TAiDFTjgUomtwAggwAIFcJfHDGKKLAAAAAElFTkSuQmCC') no-repeat center center transparent;
-    overflow: hidden;
-    text-indent: -9999px;
-}
+	.settings-caption__message{
+		font-size: 22px;
+		font-family: "Aleo";
+		color: #333333;
+		margin-left: 5%;
+		letter-spacing: 0.025em;
+	}
 
-.settings .settings-body
-{
-  margin-top: 35px;
-  margin-left: 105px;
+	.settings-caption_close {
+		display: block;
+		float: right;
+		width: 20px;
+		height: 20px;
+		border: 0;
+		outline: 0;
+		margin-right: 21px;
+		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCOEU1RkE3NzMyNzgxMUUzOUIyODgyMEM3QzREMEMwMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCOEU1RkE3ODMyNzgxMUUzOUIyODgyMEM3QzREMEMwMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI4RTVGQTc1MzI3ODExRTM5QjI4ODIwQzdDNEQwQzAzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI4RTVGQTc2MzI3ODExRTM5QjI4ODIwQzdDNEQwQzAzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m8F3LQAAAHdJREFUeNpiaWpqCmJgYNgHxB8YcAMBIHZigiqMhgrgUgiS38cENXEpDg0whSD5D0xQQWwaUBSCBJiQTEHWII+uEF0xTMMWIK6A0iieZsLiRh8g7oDSArgUI7vxITZPM+HyDDZPM+FQiM3TAiDFTjgUomtwAggwAIFcJfHDGKKLAAAAAElFTkSuQmCC') no-repeat center center transparent;
+		overflow: hidden;
+		text-indent: -9999px;
+	}
 }
+.settings .settings-body{
+	margin-top: 35px;
+	margin-left: 5%;
 
-.settings .settings-body .settings-body_item
-{
-  display: inline-block;
-  margin-right: 30px;
+	.settings-body__item{
+		display: inline-block;
+		margin-right: 1%;
+		width: 25%;
+	}
+
+	.settings-body__label{
+		display: inline-block;
+		padding-right: 14px;
+		font-family: 'Open Sans';
+		font-size: 14px;
+		color: #333;
+		text-transform: uppercase;
+		line-height: 42px;
+		vertical-align: top;
+	}
+	.settings__select{
+		.select__li img{
+			margin-right: 8px;
+		}
+	}
+}
+@media screen  and (max-width : $maxWidth) {
+	.settings .settings-caption	.settings-caption__message{
+		margin-left: 3%;
+	}
+	.settings .settings-body{
+		margin-left: 3%;
+
+		.settings-body__item{
+			width: 21%;
+		}
+	}
+
+}
+/* ==========================================================================
+   select
+   ========================================================================== */
+.select{
+	position: relative;
+	display: inline-block;
+	width: 195px;
+	height: 38px;
+	border: 1px solid #cecece;
+	cursor: pointer;
+	@include box-sizing(content-box);
+	@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, 1/10));
+
+	&:after{
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		border-bottom: 0;
+		border-top: 5px solid #555;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		margin-top: -2px;
+	}
+
+	.select__ul{
+		margin: 0;
+		padding: 0 14px;
+		list-style: none;
+
+		height: 40px;
+		overflow: hidden;
+
+		.select__li{
+			font-weight: bold;
+			line-height: 42px;
+		}
+	}
 }
 
 /* ==========================================================================
@@ -1975,7 +2160,7 @@
 	left: 0;
 	z-index: 6;
 	top: -1000px;
-	@include transition(top .3s);	
+	@include transition(top .3s);
 	background-color: #333;
 	@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	border-top: 1px solid #ccc;
@@ -2023,8 +2208,8 @@
 
 	.menu__nav__t{
 		margin: 0;
-		padding: 0;		
-	 	margin-bottom: 20px;	 	
+		padding: 0;
+	 	margin-bottom: 20px;
 	 	
 	 	.menu__nav_l{
 	 		font-size: 20px;
@@ -2051,6 +2236,6 @@
 		text-decoration: none;
 		color: #c2c2c2;
 		font-family: 'Open Sans';
-		font-size: 14px;		
+		font-size: 14px;
 	}
 }
