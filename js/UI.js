@@ -56,7 +56,6 @@ UI.prototype.refreshScroll = function($el) {
 }
 
 UI.prototype.onResize = function() {
-	this.refreshScroll();
 	this.resizeMenu();
 };
 
