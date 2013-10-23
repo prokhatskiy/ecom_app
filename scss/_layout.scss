@@ -241,7 +241,8 @@ body{
 	}
 
 	.l-content{
-		margin-bottom: -$hh;
+		top: $hh;
+		bottom: -$hh; 
 	}
 }
 
@@ -264,7 +265,8 @@ body{
 		}
 
 		.l-content{
-			margin-bottom: -$hh_s;
+			top: $hh_s;
+			bottom: -$hh_s; 
 		}
 	}
 }
