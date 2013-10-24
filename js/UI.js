@@ -8,6 +8,10 @@ var UI = function(conf) {
 	this.ESC = 27;
 	this.linkSelector = '.link';
 	this.closeLinkSelector = '.link_close';
+	this.loadDelay = 1000;
+
+	//Begin load
+	this.load(false);
 
 	//events
 	this.$win.on('resize', function() {
@@ -17,25 +21,32 @@ var UI = function(conf) {
 	this.$win.on('load', function() {
 		_this.initLinks();
 		_this.resizeMenu();
-		setTimeout(function() {
-			_this.$body.removeClass('state_load');
-			_this.onLoad();
-		}, 1000);
+		_this.onLoad();
 		return false;
 	});
 	this.$win.on('keydown', function() {
 		_this.onKeydown();
+	});
+
+	//subscribe block
+	$('#subscribeBtn').on('click', function() {
+		$('#subscribe').addClass('active');
+		return false;
+	});
+	$('#subscribeClose').on('click', function() {
+		$('#subscribe').removeClass('active');
+		return false;
 	});
 };	
 
 UI.prototype.initScroll = function(selector) {
 	var selector = selector || '.scroll';
 	return this.customScrollbars = $(selector).mCustomScrollbar({
-		 	autoHideScrollbar: true, 
-		 	autoDraggerLength : true,
-		 	scrollInertia: 10,
-		 	mouseWheelPixels: 50
-		});
+	 	autoHideScrollbar: true, 
+	 	autoDraggerLength : true,
+	 	scrollInertia: 10,
+	 	mouseWheelPixels: 50
+	});
 };
 
 UI.prototype.initLinks = function() {
@@ -60,13 +71,18 @@ UI.prototype.onResize = function() {
 };
 
 UI.prototype.onLoad = function() {
-	this.router = new Router();
-	Backbone.history.start();
+	var _this = this;
 	this.initScroll();
 	brands.init();
 	search.init();
 
-	this.locationTimeout();
+	setTimeout(function() {		
+		_this.locationTimeout();	
+		_this.load(true);	
+		_this.router = new Router();
+		Backbone.history.start();
+		_this.map = new Map();	
+	}, 1000);	
 };
 
 UI.prototype.locationTimeout = function() {
@@ -83,7 +99,16 @@ UI.prototype.resizeMenu = function() {
 
 UI.prototype.onKeydown = function() {
 	if(event.keyCode === this.ESC) {
-		router.default();
+		this.router.default();
 		search.hide();
+	}
+};
+
+UI.prototype.load = function(isLoaded) {
+	if(!isLoaded) {
+		this.$body.addClass('state_load');
+	}
+	else {
+		this.$body.removeClass('state_load');
 	}
 };

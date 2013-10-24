@@ -24,7 +24,7 @@ var search = {
 		});
 
 		this.$txt.on('keydown', function() {
-			_.debounce(_this.onSearch, 2000).call(_this);
+			_.debounce(_this.onSearch, 1000).call(_this);
 		});
 
 		this.$form.on('submit', function() {

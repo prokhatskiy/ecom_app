@@ -101,10 +101,14 @@ body{
 
 .l-mapstore{
 	z-index: 1;
-	top: 99999px;
+	top: 100%;
 	bottom: $fh;
 	left: 0;
 	right: 0;
+	width: 100%;
+	height: 100%;
+	@include box-sizing(border-box);
+	padding: $hh 0 $fh 0;
 	overflow: hidden;
 	position: absolute;
 	@include transition(all $t);
@@ -112,6 +116,46 @@ body{
 	&.active{
 		top: $hh;
 	}
+}
+
+@media screen and (max-height: $maxHeight) {
+	.l-mapstore{
+		z-index: 1;
+		top: 100%;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		@include box-sizing(border-box);
+		padding: $hh 0 $fh 0;
+		overflow: hidden;
+		position: absolute;
+		@include transition(all $t);
+
+		&.active{
+			top: 0;
+		}
+	}
+}
+
+.state_map{
+	.l-mapstore{
+		top: 0;
+	}
+
+	.contacts{
+		.contacts__location{
+			right: 0;
+		}
+	}	
+}
+
+@media screen and (max-height: $maxHeight) {
+	.state_map{
+		.l-mapstore{
+			padding: $hh_s 0 $fh_s 0;
+		}
+	}	
 }
 
 .l-help{

@@ -71,19 +71,19 @@
 	background-position: center;
 	@include transition(all .3s);
 	
-	&:hover{
-		width: 103%;
-		height: 103%;
-		top: -1.5%;
-		left: -1.5%;
+	// &:hover{
+	// 	width: 103%;
+	// 	height: 103%;
+	// 	top: -1.5%;
+	// 	left: -1.5%;
 		
-		.banner__inner{
-			width: 96%;
-			height: 96%;
-			top: 2%;
-			left: 2%;
-		}
-	}
+	// 	.banner__inner{
+	// 		width: 96%;
+	// 		height: 96%;
+	// 		top: 2%;
+	// 		left: 2%;
+	// 	}
+	// }
 
 	.banner__inner{
 		display: block;
@@ -151,20 +151,17 @@
 .banner_hover{	
 	.banner__hover{
 		@include opacity(0);
-		background: rgba(#fff, 2/10);
+		background: rgba(#000, 2/10);
 		z-index: 2;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
+		@include transition(opacity $t);
 	}
 
 	&:hover{
-		.banner__inner{
-			@include opacity(0);
-		}
-
 		.banner__hover{
 			@include opacity(1);
 		}
@@ -877,11 +874,16 @@
 		}
 	}
 
+	.contacts__mail{
+		border: 0;
+		outline: 0;
+	}
+
 	.contacts__subscribe{
 		position: absolute;
 		z-index: 2;
 		top: 0;
-		right: -999px;
+		right: -400px;
 		padding-left: 25px;
 		height: 38px;
 		white-space: nowrap;
@@ -897,6 +899,7 @@
 			padding: 0 10px;
 			cursor: #999;
 			border: none;
+			outline: 0;
 			border-bottom: 1px solid #11cce2;
 		}
 
@@ -910,6 +913,15 @@
 			border: 2px solid #11cce2;
 			background-color: #fff;
 		}
+
+		.contacts__subscribe-close{
+			@include inline-block('../img/search-close__ico.png');
+			position: absolute;
+			outline: 0;
+			border: 0;
+			bottom: 7px;
+			left: -20px;
+		}
 	}
 
 	.contacts__location{
@@ -917,47 +929,87 @@
 		z-index: 2;
 		top: 0;
 		right: -999px;
-		height: 38px;
+		height: 100%;
 		white-space: nowrap;
-		@include transition(right .5s);
+		@include transition(right 1s);
 		background-color: #fff;
-
-		&.active{
-			right: 0;
-		}
+		padding-left: 25px;
 
 		.contacts__location-name{
-			width: 360px;
+			width: 330px;
 			padding: 0 10px;
 			cursor: #999;
 			border: none;
+			height: 20px;
+			outline: 0;
 			border-bottom: 1px solid #11cce2;
 		}
 
 		.contacts__location-send{
 			margin-right: 10px;
 			width: 20px;
+			outline: 0;
 			border: none;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -8px;
+			height: 20px;
 			@include inline('../img/map__ico__active.png', no-repeat, center, 0);
 		}
 
 		.message__location{
-			top: 99px;
-			@include transition(top .5s);
+			top: -200px;
+			opacity: 0;
+			@include transition(all .5s);
 
 			&.active{
-				top: -80px;
+				opacity: 1;
+				top: -64px;
 			}
 		}
-
 	}
-
+}
+ 
+@media screen and (max-height : $maxHeight) {
+	.contacts{
+		.contacts__subscribe{
+			background-position: 0 8px;
+			.contacts__subscribe-close{
+				bottom: 12px;
+			}
+		}
+	}
 }
 
+@media screen  and (max-width : 1200px) {
+	.contacts{
+		.contacts__location{
+			.contacts__location-name{
+				width: 230px;
+			}
+		}
+		.contacts__subscribe{
+			.contacts__subscribe-email{
+				width: 145px;
+			}
+		}
+	}	
+}
 
 @media screen  and (max-width : $maxWidth) {
 	.contacts{
 		right: $cw_s + 30px;
+		.contacts__location{
+			.contacts__location-name{
+				width: 200px;
+			}
+		}
+		.contacts__subscribe{
+			.contacts__subscribe-email{
+				width: 110px;
+			}
+		}
 	}
 }
 
@@ -966,10 +1018,9 @@
    ========================================================================== */
 .mapstore__content{
 	position: absolute;
-	top: 0;
+	top: $hh;
 	left: 0;
 	right: 0;
-	bottom: 0;
 	width: 100%;
 	height: 100%;
 	background: #000;
@@ -982,21 +1033,41 @@
 		margin: 30px 0 0 20px;
 	}
 
+	.mapstore__body{
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
 	.mapstore__content_close{
-		display: block;
-		float: right;
+		position: absolute;
+		top: 31px;
+		right: 65px;
 		width: 40px;
 		height: 40px;
 		border: 0;
 		outline: 0;
-		margin: 31px 65px 0 0;
 		cursor: pointer;
 		overflow: hidden;
 		text-indent: -9999px;
 		@include inline('../img/map-close.png', no-repeat, center, center, #fff);
+		@include transition(opacity $t);
+		z-index: 2;
+			
+		&:hover{
+			opacity: .8;
+		}
 	}
 }
 
+@media screen and (max-height: $maxHeight) {
+	.mapstore__content{
+		top: $hh_s;
+	}
+}
 
 /* ==========================================================================
    login

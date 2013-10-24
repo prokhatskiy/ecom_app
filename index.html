@@ -150,8 +150,8 @@
 				</a>
 			</div>
 			<nav class="userbar">
-				<!-- <a href="home/login" class="userbar__l userbar__l_login link">Login</a> -->
-				<a href="home/user" class="userbar__l userbar__l_user link">
+				<a href="home/login" class="userbar__l userbar__l_login link" id="loginBtn">Login</a>
+				<a href="home/user" class="userbar__l userbar__l_user link" id="userBtn" style="display: none;">
 					<img src="temp/userpic.jpg" alt="" class="userbar__userpic">
 				</a>
 				<a href="home/wishlist" class="userbar__l userbar__l_wishlist userbar__l_active link">2</a>
@@ -355,25 +355,26 @@
 				</a>
 			</div>
 			<div class="contacts">
-				<a href="#" class="contacts__mail">Send Email</a>
-				<div class="contacts__subscribe">
+				<button class="contacts__mail" id="subscribeBtn">Subscribe</button>
+				<div class="contacts__subscribe" id="subscribe">
 					<input type="text" class="contacts__subscribe-email" placeholder="enter your e-mail adress">
-					<input type="button" class="contacts__subscribe-send" value="Subscribe">
+					<button class="contacts__subscribe-send">Subscribe</button>
+					<button class="contacts__subscribe-close" id="subscribeClose"></button>
 				</div>
-				<a href="#" class="contacts__map">Map</a>
+				<a href="home/map" class="contacts__map link" id="storeLocatorBtn">Store locator</a>
 				<div class="contacts__location">
-					<span class="message message__lang message__location">Search location.<span class="small">Type your country below.</span></span>
+					<span class="message message__lang message__location active" id="mapPopup">Search location.<span class="small">Type your country below.</span></span>
 					<input type="button" class="contacts__location-send">
-					<input type="text" class="contacts__location-name" placeholder="search your location">
+					<input type="text" class="contacts__location-name" placeholder="search your location">	
 				</div>
 			</div>
 		</footer>
 		<!-- /.l-footer -->
 		<!-- .l-mapstore -->
 		<section class="l-mapstore">
-			<div class="mapstore__content" style="background-image: url('temp/map.jpg');">
+			<div class="mapstore__content">
+				<div class="mapstore__body" id="map"></div>
 				<a class="mapstore__content_close link_close"></a>
-				<img src="temp/navigator.png" alt="" class="navigator">
 			</div>
 		</section>
 		<!-- /.l-mapstore -->
@@ -869,6 +870,10 @@
 		<div class="l-overlay link_close"></div>
 		<!-- /.overlay -->
 		</div>
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4NQQqOIVCndI4jGzuHGoMI-qJtQvZ-HQ&sensor=true">
+    </script>
+
 <script src="components/jquery/jquery.min.js"></script>
 <script src="components/underscore/underscore-min.js"></script>
 <script src="components/backbone/backbone-min.js"></script>
@@ -878,6 +883,7 @@
 <script src="js/brands.js"></script>
 <script src="js/search.js"></script>
 <script src="js/Cart.js"></script>
+<script src="js/Map.js"></script>
 <script src="js/Router.js"></script>
 <script src="js/UI.js"></script>
 
