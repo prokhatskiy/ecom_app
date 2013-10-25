@@ -52,6 +52,12 @@ var UI = function(conf) {
 		return false;
 	});
 
+	//login
+	$('.login').on('click', function() {
+		$('#loginBtn').hide();
+		$('#userBtn').show();
+	});
+
 	return this;
 };	
 
@@ -68,7 +74,18 @@ UI.prototype.initScroll = function(selector) {
 UI.prototype.initLinks = function() {
 	var _this = this;
 	$(this.linkSelector).on('click', function() {
-		_this.router.set($(this).attr('href'));
+		var $this = $(this);
+		if($this.hasClass('login')) {
+			$this.addClass('btn_load');
+			setTimeout(function() {
+				$this.removeClass('btn_load');
+				_this.router.set($this.attr('href'));
+			}, 1000);
+		}
+		else {
+			_this.router.set($(this).attr('href'));
+		}
+		
 		return false;
 	});
 	$(this.closeLinkSelector).on('click', function() {
