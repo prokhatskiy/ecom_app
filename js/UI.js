@@ -10,6 +10,14 @@ var UI = function(conf) {
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
+	//Load event
+	this.$win.on('load:start', function() {
+		_this.load(true);
+	});
+	this.$win.on('load:end', function() {
+		_this.load(false);
+	});
+	
 	//Begin load
 	this.$body.trigger('load:start');
 
@@ -26,14 +34,6 @@ var UI = function(conf) {
 	});
 	this.$win.on('keydown', function() {
 		_this.onKeydown();
-	});
-
-	//Load event
-	this.$win.on('load:start', function() {
-		_this.load(true);
-	});
-	this.$win.on('load:end', function() {
-		_this.load(false);
 	});
 
 	//subscribe block
@@ -138,11 +138,12 @@ UI.prototype.onKeydown = function() {
 };
 
 UI.prototype.load = function(isLoading) {
-	console.log('123')
 	if(isLoading) {
 		this.$body.addClass('state_load');
+		NProgress.start()
 	}
 	else {
 		this.$body.removeClass('state_load');
+		NProgress.done()
 	}
 };
