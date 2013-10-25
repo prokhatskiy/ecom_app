@@ -2,12 +2,18 @@ var Router = Backbone.Router.extend({
 	body : document.body,
 	homePath : 'home',
 	$menus : $('.menu'), 
+	pages : ['home', 'category', 'products', 'product'],
 	pathArr : ['brands', 'settings', 'cart', 'wishlist', 'login', 'user', 'menu', 'map'],
 	routes: {
 		'home/menu/*path' : 'menuHandler',
 		'home/*path' : 'handler',
 		'*path' : 'default'
 	},
+
+	test : function(page, action) {
+		console.log(page,action);
+	},
+
 	handler : function(path) {			
 		var arr = this.pathArr,
 		    l = arr.length;

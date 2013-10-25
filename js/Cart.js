@@ -1,7 +1,6 @@
 var Cart = function(conf) {
 	var _this = this,
-	    conf = conf || {},
-	    ui = ui || new UI();
+	    conf = conf || {};
 
 	this.scope = conf.scope || 'cart';
 

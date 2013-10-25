@@ -37,6 +37,15 @@ var UI = function(conf) {
 		$('#subscribe').removeClass('active');
 		return false;
 	});
+
+	//help
+	$('#helpBtn').on('click', function(e) {
+		console.log($('#help').toggleClass('active'));
+		e.stopPropagation();
+		return false;
+	});
+
+	return this;
 };	
 
 UI.prototype.initScroll = function(selector) {
