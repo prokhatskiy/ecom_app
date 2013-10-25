@@ -3135,6 +3135,7 @@ body {
 #nprogress {
   position: absolute;
   height: 2px;
+  z-index: 4;
   width: 100%;
   top: 75px;
   pointer-events: none;

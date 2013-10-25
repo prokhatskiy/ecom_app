@@ -17,7 +17,7 @@ var UI = function(conf) {
 	this.$win.on('load:end', function() {
 		_this.load(false);
 	});
-	
+
 	//Begin load
 	this.$body.trigger('load:start');
 
@@ -56,6 +56,12 @@ var UI = function(conf) {
 	$('.login').on('click', function() {
 		$('#loginBtn').hide();
 		$('#userBtn').show();
+	});
+	$('#signOut').on('click', function() {
+		$('#loginBtn').show();
+		$('#userBtn').hide();
+		ui.default();
+		return false;
 	});
 
 	return this;
@@ -109,7 +115,10 @@ UI.prototype.onLoad = function() {
 	brands.init();
 	search.init();
 
-	setTimeout(function() {		
+	setTimeout(function() {	
+		//location message
+		$('#messageLang').removeClass('hide');	
+
 		_this.locationTimeout();	
 		_this.$body.trigger('load:end');
 		_this.router = new Router();
@@ -121,7 +130,7 @@ UI.prototype.onLoad = function() {
 UI.prototype.locationTimeout = function() {
 	setTimeout(function() {
 		$('#messageLang').addClass('hide');
-	}, 10000);
+	}, 3000);
 };
 
 UI.prototype.resizeMenu = function() {
@@ -143,7 +152,7 @@ UI.prototype.load = function(isLoading) {
 		NProgress.start()
 	}
 	else {
-		this.$body.removeClass('state_load');
-		NProgress.done()
+		NProgress.done();
+		this.$body.removeClass('state_load');		
 	}
 };
