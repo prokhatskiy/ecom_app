@@ -11,7 +11,7 @@ var UI = function(conf) {
 	this.loadDelay = 1000;
 
 	//Begin load
-	this.load(false);
+	this.$body.trigger('load:start');
 
 	//events
 	this.$win.on('resize', function() {
@@ -28,6 +28,14 @@ var UI = function(conf) {
 		_this.onKeydown();
 	});
 
+	//Load event
+	this.$win.on('load:start', function() {
+		_this.load(true);
+	});
+	this.$win.on('load:end', function() {
+		_this.load(false);
+	});
+
 	//subscribe block
 	$('#subscribeBtn').on('click', function() {
 		$('#subscribe').addClass('active');
@@ -40,8 +48,7 @@ var UI = function(conf) {
 
 	//help
 	$('#helpBtn').on('click', function(e) {
-		console.log($('#help').toggleClass('active'));
-		e.stopPropagation();
+		$('#help').toggleClass('active');
 		return false;
 	});
 
@@ -87,7 +94,7 @@ UI.prototype.onLoad = function() {
 
 	setTimeout(function() {		
 		_this.locationTimeout();	
-		_this.load(true);	
+		_this.$body.trigger('load:end');
 		_this.router = new Router();
 		Backbone.history.start();
 		_this.map = new Map();	
@@ -113,8 +120,9 @@ UI.prototype.onKeydown = function() {
 	}
 };
 
-UI.prototype.load = function(isLoaded) {
-	if(!isLoaded) {
+UI.prototype.load = function(isLoading) {
+	console.log('123')
+	if(isLoading) {
 		this.$body.addClass('state_load');
 	}
 	else {

@@ -419,6 +419,12 @@
 		margin: 0;
 		padding: 0;
 		@include box-shadow(-10px 10px 20px rgba(#000, 1/10));
+		@include transition(all $t);
+		list-style: none;
+	}
+
+	.search__result_hide{
+		top: -300px;
 	}
 
 	.search__result-i,
@@ -467,16 +473,9 @@
 		.search__result{
 			top: 61px - ($hh - $hh_s);
 		}
-	}
-}
-
-.search_load{
-	.search__btn{
-		display: none;
-	}
-
-	.search__close{
-		@include inline('../img/search__loader.gif', no-repeat, right, center, #fff);
+		.search__result_hide{
+			top: -300px;
+		}
 	}
 }
 
@@ -548,6 +547,16 @@
 			left: 0;
 			margin-left: 5px;
 		}
+	}
+}
+
+.search_load{
+	.search__close{
+		display: none;
+	}
+
+	.search__txt{
+		@include inline('../img/search__loader.gif', no-repeat, right, center, #fff);
 	}
 }
 
