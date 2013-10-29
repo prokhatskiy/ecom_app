@@ -91,7 +91,7 @@ UI.prototype.onLoad = function() {
 	this.initScroll();
 	brands.init();
 	search.init();
-
+	_this.ProductList = new ProductList();
 	setTimeout(function() {		
 		_this.locationTimeout();	
 		_this.$body.trigger('load:end');

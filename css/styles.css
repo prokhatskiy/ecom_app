@@ -3088,3 +3088,418 @@ body {
   .user .user__body {
     top: 60px;
     bottom: 43px; } }
+.product-list__filters {
+  background: #f9f9f9;
+  position: relative;
+  z-index: 5;
+  height: 36px;
+  border: solid #e5e5e5;
+  border-width: 1px 0;
+  box-shadow: 0 1px 0 #f9f9f9; }
+
+.product-list__filters-list {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.product-list__filters-list__item {
+  float: left;
+  text-transform: uppercase;
+  color: #828282;
+  height: 36px;
+  min-width: 135px;
+  font: 13px/38px 'Oswald Light', arial, sans-serif;
+  border-right: 1px solid #e5e5e5;
+  padding: 0 15px; }
+
+.products-categories-opener {
+  background: #333;
+  height: 38px;
+  position: relative;
+  margin: -1px 0;
+  padding: 0;
+  line-height: 40px;
+  min-width: 0;
+  border: none; }
+  .products-categories-opener a {
+    display: block;
+    color: #ff4a7e;
+    text-decoration: none;
+    padding: 0 15px 0 22px;
+    background: url(../img/filters-opener-lines.png) 0 47% no-repeat; }
+    .products-categories-opener a:after {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 0;
+      height: 0;
+      content: '';
+      border-style: solid;
+      border-width: 19px 0 19px 10px;
+      border-color: transparent transparent transparent #333; }
+
+.products-categories-opener + .product-list__filters-list__item {
+  padding-left: 30px; }
+
+.product-list-holder {
+  position: absolute;
+  top: 38px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto; }
+
+.product-list__item {
+  width: 255px;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 10px 0 0;
+  height: 340px;
+  float: left; }
+
+.product-list__item__rating {
+  text-align: center;
+  display: block;
+  margin: 0 0 6px; }
+
+.star {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: top;
+  background: url(../img/star.png) no-repeat; }
+
+.product-list__item__visual {
+  display: block;
+  text-align: center;
+  padding: 0 0 5px;
+  height: 225px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+  .product-list__item__visual img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top; }
+
+.product-list__item__name {
+  margin: 9px 0;
+  max-height: 28px;
+  overflow: hidden;
+  text-align: center;
+  font: 12px/14px "Aleo Light", arial, sans-serif;
+  color: #523f3f;
+  text-transform: uppercase; }
+
+.product-list__item__price {
+  font: 18px/20px "Aleo", arial, sans-serif;
+  color: #190000;
+  text-align: center; }
+
+.product-list__item__sale {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  width: 57px;
+  text-align: center;
+  height: 57px;
+  font: 18px/58px 'Oswald Light', arial, sans-serif;
+  color: #ff006c;
+  background: url(../img/sale.png) no-repeat; }
+
+.product-color {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #fff;
+  background: none;
+  display: block;
+  cursor: pointer; }
+
+.product-color_checked,
+.product-color:checked {
+  border-color: #f32a64; }
+
+.product-colors__item {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0 3px; }
+  .product-colors__item input {
+    display: none; }
+    .product-colors__item input:checked + .product-color {
+      border-color: #f32a64; }
+
+.product-colors {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  height: 16px;
+  margin: -16px 0 0; }
+
+.product-list__title-holder {
+  position: relative;
+  width: 510px;
+  z-index: 5;
+  height: 313px;
+  float: left;
+  margin: 0 30px 37px 0;
+  overflow: hidden; }
+
+.product-list__title-holder__visual {
+  text-align: center;
+  width: 2000px;
+  display: block;
+  left: 50%;
+  margin: 0 0 0 -1000px;
+  position: relative; }
+
+.product-list__title {
+  position: absolute;
+  bottom: 70px;
+  -webkit-transition: bottom 0.5s;
+  -moz-transition: bottom 0.5s;
+  -o-transition: bottom 0.5s;
+  transition: bottom 0.5s;
+  width: 100%;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  color: #11cce2;
+  font: 48px/50px "Aleo", arial, sans-serif; }
+
+.product-list__filters__select {
+  display: none; }
+
+.product-list_big .product-list__title-holder {
+  width: 600px;
+  height: 370px;
+  margin: 0 30px 40px 0; }
+.product-list_big .product-list__item__name {
+  font-size: 13px;
+  margin: 10px 0; }
+.product-list_big .product-list__item__price {
+  font-size: 22px; }
+.product-list_big .product-list__item {
+  width: 300px;
+  margin: 0 15px 0 0;
+  height: 400px; }
+.product-list_big .product-list__item__visual {
+  height: 280px; }
+.product-list_big .product-list__title {
+  bottom: 110px; }
+
+.product-list__view-types {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 15px 0 0;
+  overflow: hidden; }
+
+.product-list__view-type {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 5px; }
+  .product-list__view-type input {
+    display: none; }
+
+.product-list__view-type__ico {
+  display: block;
+  cursor: pointer;
+  overflow: hidden; }
+  .product-list__view-type__ico i {
+    float: left;
+    margin: 0 1px 0 0;
+    height: 6px;
+    border: 1px solid #d5d5d5; }
+  input:checked + .product-list__view-type__ico i {
+    background: #fff;
+    border-color: #11cce2; }
+
+.product-list__view-type_big .product-list__view-type__ico i {
+  width: 5px; }
+
+.product-list__view-type_small .product-list__view-type__ico i {
+  width: 4px; }
+
+.products-categories {
+  position: absolute;
+  top: 75px;
+  left: -9999px;
+  opacity: 0;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: opacity 0.5s ease, left 0s 0.5s;
+  -webkit-transition-delay: 0s, linear;
+  -moz-transition: opacity 0.5s ease, left 0s 0.5s linear;
+  -o-transition: opacity 0.5s ease, left 0s 0.5s linear;
+  transition: opacity 0.5s ease, left 0s 0.5s linear;
+  height: 100%;
+  font: 13px "Oswald Light", arial, sans-serif;
+  background: rgba(51, 51, 51, 0.6);
+  overflow: hidden; }
+
+.products-categories_active {
+  opacity: 1;
+  left: 0;
+  -webkit-transition: opacity 0.5s ease, left 0s 0s;
+  -webkit-transition-delay: 0s, linear;
+  -moz-transition: opacity 0.5s ease, left 0s 0s linear;
+  -o-transition: opacity 0.5s ease, left 0s 0s linear;
+  transition: opacity 0.5s ease, left 0s 0s linear; }
+  .products-categories_active .products-categories__content {
+    left: 0; }
+
+.products-categories__content {
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+  background: #fff;
+  position: absolute;
+  bottom: 55px;
+  top: 0;
+  width: 224px;
+  left: -224px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.45); }
+
+.products-categories__title-holder {
+  max-height: 0 0 10px; }
+
+.products-categories__title {
+  height: 38px;
+  display: block;
+  line-height: 40px;
+  color: #ff4a7e;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 15px 0 22px;
+  background: #333333 url(../img/filters-opener-lines.png) 0 50% no-repeat; }
+
+.products-categories__type {
+  border-bottom: 1px solid #f0f0f0;
+  color: #b2b2b2;
+  padding: 0 0 0 5px;
+  text-transform: uppercase;
+  line-height: 28px;
+  height: 27px; }
+
+.products-categories__list {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 66px;
+  padding: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  margin: 0; }
+
+.products-categories__list__item {
+  margin: 0 0 30px;
+  padding: 0 0 0 23px; }
+  .products-categories__list__item:first-child {
+    margin-top: 20px; }
+
+.products-categories__list__head {
+  margin: 0 0 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #444; }
+
+.products-categories__list__head_sale {
+  color: #f32a64; }
+
+.products-categories__sub-list {
+  margin: 0;
+  font: 13px/24px 'Open Sans Light', arial, sans-serif;
+  padding: 0;
+  list-style: none; }
+
+.products-categories__sub-list__item {
+  position: relative; }
+
+.products-categories__sub-list__item a {
+  text-decoration: none;
+  color: #888; }
+  .products-categories__sub-list__item a:hover {
+    color: #f32a64; }
+
+.products-categories__sub-list__item_active {
+  font-family: "Open Sans", arial, sans-serif; }
+  .products-categories__sub-list__item_active:after {
+    position: absolute;
+    left: -14px;
+    top: 9px;
+    content: '';
+    border: 1px solid #f32a64;
+    width: 4px;
+    height: 4px;
+    border-radius: 3px; }
+  .products-categories__sub-list__item_active a {
+    color: #f32a64; }
+
+.text-arrow {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url(../img/text-arrow-l.png) no-repeat; }
+
+/**** Isotope CSS3 transitions ****/
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s; }
+
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width; }
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity; }
+
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s; }
+
+@media screen and (max-height: 800px) {
+  .products-categories {
+    top: 55px; } }
+.product-color_white {
+  background-color: white; }
+
+.product-color_grey {
+  background-color: #898c91; }
+
+.product-color_light-grey {
+  background-color: #e1e1e1; }
+
+.product-color_purple {
+  background-color: #3e4c93; }
+
+.product-color_white {
+  border-color: #aaa; }
+
+.product-color_grey-black {
+  background: linear-gradient(to top right, #ebebe9 0%, #ebebe9 50%, #000000 50%, #000000 100%); }
+
+.product-color_grey-blue {
+  background: linear-gradient(to top right, #ebebe9 0%, #ebebe9 50%, #2b2e68 50%, #2b2e68 100%); }

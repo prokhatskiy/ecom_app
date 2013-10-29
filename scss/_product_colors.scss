@@ -1,0 +1,17 @@
+$list :   "white", 'grey',    'light-grey', 'purple';
+$colors :  #fff,    #898c91,   #e1e1e1,      #3e4c93;
+@each $item in $list {
+	$i: index($list, $item);
+	.product-color_#{$item}{
+		background-color: nth($colors, $i);
+	}
+}
+.product-color_white {
+	border-color:#aaa;
+}
+.product-color_grey-black {
+	background: linear-gradient(to top right, #ebebe9 0%,#ebebe9 50%, #000 50%, #000 100% );
+}
+.product-color_grey-blue {
+	background: linear-gradient(to top right, #ebebe9 0%,#ebebe9 50%, #2b2e68 50%, #2b2e68 100% );
+}
