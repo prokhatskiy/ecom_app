@@ -298,6 +298,19 @@
 		@include inline-block('../img/wishlist__ico_active.png', no-repeat, 0, 0);
 		text-decoration: none;
 	}
+
+	.userbar__l_user{
+		text-indent: 0;
+		height: 34px;
+		width: 34px;
+		overflow: hidden;
+		@include border-radius(18px);
+		margin-right: 20px;
+	}
+
+	.userbar__userpic{
+		display: block;
+	}
 }
 
 @media screen  and (max-width : $maxWidth) {
@@ -1230,10 +1243,13 @@
 	  }
 	}
 
-	.login-body_form input[type="submit"]{
+	.login-body_form a{
+	  text-decoration: none;
+	  display: inline-block;
 	  margin: 0 auto;
 	  width: 131px;
 	  height: 30px;
+	  line-height: 30px;
 	  background-color: #f32a64;
 	  color: #ffffff;
 	  font-size: 12px;
@@ -1285,6 +1301,7 @@
    ========================================================================== */
 
 .btn{
+	text-decoration: none;
 	outline: 0;
 	display: block;
 	width: 140px;
@@ -1303,6 +1320,19 @@
 	
 	&:hover{
 		@include opacity(8/10);
+	}
+}
+
+.btn_load{
+	position: relative;
+	&:after{
+		display: block;
+		position: absolute;
+		content: '';
+		@include inline-block('../img/search__loader.gif');
+		top: 50%;
+		margin-top: -8px;
+		right: -23px;
 	}
 }
 

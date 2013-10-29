@@ -17,6 +17,7 @@
     "jquery" : "~2.0",
     "iscroll" : "~5.0.0",
     "requirejs" : "~1.0",
+    "nprogress" : "~0.1.2",
     "malihu-custom-scrollbar-plugin-bower" : "*"
   },
 

@@ -10,6 +10,14 @@ var UI = function(conf) {
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
+	//Load event
+	this.$win.on('load:start', function() {
+		_this.load(true);
+	});
+	this.$win.on('load:end', function() {
+		_this.load(false);
+	});
+
 	//Begin load
 	this.$body.trigger('load:start');
 
@@ -28,14 +36,6 @@ var UI = function(conf) {
 		_this.onKeydown();
 	});
 
-	//Load event
-	this.$win.on('load:start', function() {
-		_this.load(true);
-	});
-	this.$win.on('load:end', function() {
-		_this.load(false);
-	});
-
 	//subscribe block
 	$('#subscribeBtn').on('click', function() {
 		$('#subscribe').addClass('active');
@@ -49,6 +49,18 @@ var UI = function(conf) {
 	//help
 	$('#helpBtn').on('click', function(e) {
 		$('#help').toggleClass('active');
+		return false;
+	});
+
+	//login
+	$('.login').on('click', function() {
+		$('#loginBtn').hide();
+		$('#userBtn').show();
+	});
+	$('#signOut').on('click', function() {
+		$('#loginBtn').show();
+		$('#userBtn').hide();
+		ui.default();
 		return false;
 	});
 
@@ -68,7 +80,18 @@ UI.prototype.initScroll = function(selector) {
 UI.prototype.initLinks = function() {
 	var _this = this;
 	$(this.linkSelector).on('click', function() {
-		_this.router.set($(this).attr('href'));
+		var $this = $(this);
+		if($this.hasClass('login')) {
+			$this.addClass('btn_load');
+			setTimeout(function() {
+				$this.removeClass('btn_load');
+				_this.router.set($this.attr('href'));
+			}, 1000);
+		}
+		else {
+			_this.router.set($(this).attr('href'));
+		}
+		
 		return false;
 	});
 	$(this.closeLinkSelector).on('click', function() {
@@ -92,7 +115,10 @@ UI.prototype.onLoad = function() {
 	brands.init();
 	search.init();
 	_this.ProductList = new ProductList();
-	setTimeout(function() {		
+
+	setTimeout(function() {	
+		//location message
+		$('#messageLang').removeClass('hide');	
 		_this.locationTimeout();	
 		_this.$body.trigger('load:end');
 		_this.router = new Router();
@@ -104,7 +130,7 @@ UI.prototype.onLoad = function() {
 UI.prototype.locationTimeout = function() {
 	setTimeout(function() {
 		$('#messageLang').addClass('hide');
-	}, 10000);
+	}, 3000);
 };
 
 UI.prototype.resizeMenu = function() {
@@ -121,11 +147,12 @@ UI.prototype.onKeydown = function() {
 };
 
 UI.prototype.load = function(isLoading) {
-	console.log('123')
 	if(isLoading) {
 		this.$body.addClass('state_load');
+		NProgress.start()
 	}
 	else {
-		this.$body.removeClass('state_load');
+		NProgress.done();
+		this.$body.removeClass('state_load');		
 	}
 };

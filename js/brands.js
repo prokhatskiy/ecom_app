@@ -1,15 +1,15 @@
 var brands = {
 	$container : $('#brands'),
-	$btn : $('#brands .brands__viewer'),
+	$btn : $('#brandsBtn'),
 	init : function() {
 		this.$btn.on('click', function() {
 			if(ui.$body.hasClass('state_brands')){
-				ui.router.default();
+				ui.$body.removeClass('state_brands');
 				$(this).removeClass('brands__viewer_active');
 			}
 			else {
+				ui.$body.addClass('state_brands');
 				$(this).addClass('brands__viewer_active');
-				ui.router.set('home/brands');
 			}			
 		});		
 	},
