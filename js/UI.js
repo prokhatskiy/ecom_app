@@ -149,7 +149,7 @@ UI.prototype.onKeydown = function() {
 UI.prototype.load = function(isLoading) {
 	if(isLoading) {
 		this.$body.addClass('state_load');
-		NProgress.start()
+		NProgress.start();
 	}
 	else {
 		NProgress.done();

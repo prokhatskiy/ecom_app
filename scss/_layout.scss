@@ -13,8 +13,8 @@ body{
 }
 
 body{
-	min-height: 300px;
 	min-width: 990px;
+	min-height: 300px;
 }
 
 .l-login,
@@ -40,38 +40,38 @@ body{
 }
 
 .l-wrapper{
+	position: relative;
 	top: 0;
-	left: 0;
 	right: 0;
 	bottom: 0;
+	left: 0;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	position: relative;
 }
 
 .l-brands,
 .l-header{
 	@include transition(top $t);
+	right: 0;
+	left: 0;
+	width: 100%;
 	height: $hh;
 	line-height: $hh;
-	width: 100%;
-	left: 0;
-	right: 0;
 }
 
-.l-brands{	
-	background-color: #474747;
+.l-brands{
 	top: - $hh;	
-	z-index: 3;
+	z-index: 3;	
+	background-color: #474747;
 }
 
 .l-header{
-	background-color: #FFF;
+	@include box-shadow(0 0 20px rgba(0, 0, 0, 1/10));
+	position: relative;
 	top: 0;
 	z-index: 2;
-	position: relative;
-	@include box-shadow(0 0 20px rgba(0, 0, 0, 1/10));
+	background-color: #FFF;
 }
 
 .l-content{
@@ -79,39 +79,39 @@ body{
 }
 
 .l-content{
-	left: 0;
-	right: 0;
 	top: $hh;
+	right: 0;
 	bottom: $fh;
+	left: 0;
 	z-index: 1;
 	background-color: #FFF;
 }
 
 .l-footer{
-	background-color: #fff;
-	width: 100%;
+	@include box-shadow(0 0 20px rgba(0, 0, 0, 2/10));
+	right: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
-	height: $fh;
-	line-height: $fh;
 	z-index: 2;
-	@include box-shadow(0 0 20px rgba(0, 0, 0, 2/10));
+	width: 100%;
+	height: $fh;
+	background-color: #fff;
+	line-height: $fh;
 }
 
 .l-mapstore{
-	z-index: 1;
+	@include box-sizing(border-box);
+	@include transition(all $t);
+	position: absolute;
 	top: 100%;
+	right: 0;
 	bottom: $fh;
 	left: 0;
-	right: 0;
+	z-index: 1;
+	overflow: hidden;
+	padding: $hh 0 $fh 0;
 	width: 100%;
 	height: 100%;
-	@include box-sizing(border-box);
-	padding: $hh 0 $fh 0;
-	overflow: hidden;
-	position: absolute;
-	@include transition(all $t);
 
 	&.active{
 		top: $hh;
@@ -120,17 +120,17 @@ body{
 
 @media screen and (max-height: $maxHeight) {
 	.l-mapstore{
-		z-index: 1;
+		@include box-sizing(border-box);
+		@include transition(all $t);
+		position: absolute;
 		top: 100%;
-		left: 0;
 		right: 0;
+		left: 0;
+		z-index: 1;
+		overflow: hidden;
+		padding: $hh 0 $fh 0;
 		width: 100%;
 		height: 100%;
-		@include box-sizing(border-box);
-		padding: $hh 0 $fh 0;
-		overflow: hidden;
-		position: absolute;
-		@include transition(all $t);
 
 		&.active{
 			top: 0;
@@ -160,11 +160,11 @@ body{
 
 .l-help{
 	position: absolute;
-	z-index: 7;
-	bottom: 0;
 	right: 0;
-	height: $fh;
+	bottom: 0;
+	z-index: 7;
 	width: $cw;
+	height: $fh;
 	line-height: $fh_s;
 }
 
@@ -186,8 +186,8 @@ body{
 
 	.l-footer,
 	.l-help{
-		line-height: $fh_s;
 		height: $fh_s;
+		line-height: $fh_s;
 	}
 	.l-mapstore{
 		bottom: $fh_s;
@@ -203,54 +203,54 @@ body{
 }
 
 .l-settings{
-	left: 0;
-	height: $sh;
 	right: 0;
-	width: 100%;
 	bottom: - $sh;
+	left: 0;
 	z-index: 3;
+	width: 100%;
+	height: $sh;
 }
 
 .l-login,
 .l-user,
 .l-cart,
 .l-wishlist{
-	width: $uw;
+	@include transition(right $t);
 	position: absolute;
 	top: 0;
-	bottom: 0;
-	height: 100%;
 	right: -$uw;
+	bottom: 0;
 	z-index: 4;
-	@include transition(right $t);
+	width: $uw;
+	height: 100%;
 }
 
 .l-cart,
 .l-wishlist{
+	right: -$cw;
 	width: $cw;
-	right: -$cw
 }
 
 .l-overlay{
+	@include transition(opacity $t);
 	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+	display: none;
 	width: 100%;
 	height: 100%;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	z-index: 5;
 	background: rgba(#000, 6/10);
-	display: none;
 	opacity: 0;
-	@include transition(opacity $t);
 }
 
 @media screen and (max-width : $maxWidth) {
 	.l-cart,
 	.l-wishlist{
-		width: $cw_s;
 		right: -$cw_s;
+		width: $cw_s;
 	}
 
 	.l-help{
@@ -295,9 +295,9 @@ body{
 	}
 
 	.l-settings{
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		bottom: 0;
 		z-index: 6;
-		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 }
 
@@ -318,53 +318,53 @@ body{
 //horizontal states
 .state_login{
 	.l-login{
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
 		z-index: 6;
-		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
-		left: -$uw;
 		right: $uw;
+		left: -$uw;
 	}
 }
 
 .state_user{
 	.l-user{
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
 		z-index: 6;
-		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
-		left: -$uw;
 		right: $uw;
+		left: -$uw;
 	}
 }
 
 .state_cart{
 	.l-cart{
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
 		z-index: 6;
-		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
-		left: -$cw;
 		right: $cw;
+		left: -$cw;
 	}
 }
 
 .state_wishlist{
 	.l-wishlist{
+		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
 		z-index: 6;
-		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 	}
 
 	.l-content{
-		left: -$cw;
 		right: $cw;
+		left: -$cw;
 	}
 }
 
@@ -373,8 +373,8 @@ body{
 	.state_cart,
 	.state_wishlist{
 		.l-content{
-			left: -$cw_s;
 			right: $cw_s;
+			left: -$cw_s;
 		}
 	}
 }
@@ -404,15 +404,15 @@ $states : women, men, kids, home;
 		}
 
 		.nav__l_#{$state}{
-			color: #11cce2 !important;
 			position: relative;
+			color: #11cce2 !important;
 			&:after{
-				content: '';
 				@include inline-block('../img/menu__arr.png');
 				position: absolute;
-				left: 50%;
 				bottom: -1px;
+				left: 50%;
 				margin-left: - round(image-width('../img/menu__arr.png')/2);
+				content: '';
 			}
 		}
 	}
@@ -428,13 +428,13 @@ $states : women, men, kids, home;
 
 .state_load{
 	&:after{
-		content: '';
 		position: fixed;
 		top: 0;
 		left: 0;
+		z-index: 10000;
 		width: 100%;
 		height: 100%;
-		z-index: 10000;
+		content: '';
 	}
 
 	.l-content{
@@ -449,32 +449,32 @@ $states : women, men, kids, home;
 .l-grid{
 	position: absolute;
 	top: 0;
-	left: 0;
 	right: 0;
 	bottom: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	
 	.l-grid__col{
-		position: absolute;
-		height: 100%;
-		top: 0;
 		@include transition(all $t);
+		position: absolute;
+		top: 0;
+		height: 100%;
 	}
 
 	.l-grid__col_w3{
-		width: 50%;
 		left: 0;
+		width: 50%;
 	}
 
 	.l-grid__col_w2{
-		width: 33.4%;
 		left: 49.99%;
+		width: 33.4%;
 	}
 
 	.l-grid__col_w1{
-		width: 16.68%;
 		left: 83%;
+		width: 16.68%;
 	}
 	
 	.l-grid__i{
@@ -483,10 +483,10 @@ $states : women, men, kids, home;
 	}
 
 	.l-grid__i_b1{
-		width: 100%;
-		height: 100%;
 		top: 0;
 		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 
 	.l-grid__i_b2{
@@ -498,9 +498,9 @@ $states : women, men, kids, home;
 
 	.l-grid__i_b3,
 	.l-grid__i_b4{
+		top: 49.99%;
 		width: 50.01%;
 		height: 50.01%;
-		top: 49.99%;
 	}
 
 	.l-grid__i_b3{
@@ -513,9 +513,9 @@ $states : women, men, kids, home;
 	
 	.l-grid__i_b5,
 	.l-grid__i_b6{
+		left: 0;
 		width: 100%;
 		height: 50%;
-		left: 0;
 	}
 
 	.l-grid__i_b5{
