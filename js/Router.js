@@ -1,41 +1,101 @@
 var Router = Backbone.Router.extend({
-	body : document.body,
+	$body : $('body'),
+
 	homePath : 'home',
+	currentPage : '',
+	currentAction : '',
+	currentNum : '',
+
 	$menus : $('.menu'), 
+
 	pages : ['home', 'category', 'products', 'product'],
-	pathArr : ['settings', 'cart', 'wishlist', 'login', 'user', 'menu', 'map'],
+	actions : ['settings', 'cart', 'wishlist', 'login', 'user', 'menu', 'map'],
+	menus : ['women', 'men', 'kids', 'home'],
+
 	routes: {
-		'home/menu/*path' : 'menuHandler',
-		'home/*path' : 'handler',
+		':page(/:action)(/*path)' : 'handler',
 		'*path' : 'default'
 	},
 
-	test : function(page, action) {
-		console.log(page,action);
+	handler : function(page, action, num) {
+		var page = page || false,
+		    action = action || false,
+		    num = num || false;
+
+		if(page && page != this.currentPage) {
+			this.setAction(page, 'page', this.pages);			
+		}
+		else if(!page) {
+			this.default();
+			return false;
+		}
+
+		if(action && action != this.currentAction) {
+			this.setAction(action, 'state', this.actions);			
+		}	
+		else if(!action) {
+			this.clearClasses('state');
+		}
 	},
 
-	handler : function(path) {			
-		var arr = this.pathArr,
-		    l = arr.length;
-		for (var i = 0; i < l; i++) {
-			if(arr[i] === path) {
-				this.body.className = 'state_' + path;
-				if(path === 'brands') { 
-					brands.activateBtn();
-				}
-				return path;
-			}		
+	setAction : function(action, prefix, states) {
+		if(states.join(' ').indexOf(action) === -1) {
+			this.default();
+			return false;
+		}
+
+		this.clearClasses(prefix);
+		this.$body.addClass( prefix + '_' + action);
+
+		switch(prefix) {
+			case 'page' : 
+				this.currentPage = action; break;
+			case 'state' : 
+				this.currentAction = action; break;
+		}
+	},
+
+	clearClasses : function(action) {	
+		var prefix = '',
+		    clss = [],
+		    clsArr = [],
+		    clsStr = '';
+
+		if (action === 'page') {
+			prefix = 'page';
+		    clss = this.pages;
+		}
+		else if (action === 'state') {
+			prefix = 'state';
+		    clss = this.actions;
+		}
+		else {
+			return false;
+		}
+
+		for (var i = 0; i < clss.length; i++) {
+			clsArr[i] = prefix + '_' + clss[i];
 		};
-		this.default();			
+
+		clsStr = clsArr.join(' ');
+		console.log(this.$body.removeClass(clsStr))
+		this.$body.removeClass(clsStr);
 	},
-	menuHandler : function(path) {
-		this.body.className = 'state_menu state_menu_' + path;
+
+	clearPage : function() {
+		this.set(this.currentPage);
+		this.currentAction = '';
 	},
+
 	default : function() {
-		this.set(this.homePath);
+		this.clearCls('page', this.pages);
+		this.clearCls('state', this.actions);		
+		this.currentPage = this.homePath;
+		this.currentAction = '';
+
 		$('#brands .brands__viewer').removeClass('brands__viewer_active');
-		this.body.className = '';
 	},
+
 	set : function(path) {
 		document.location.hash = path;
 	}

@@ -85,7 +85,7 @@ UI.prototype.initLinks = function() {
 			$this.addClass('btn_load');
 			setTimeout(function() {
 				$this.removeClass('btn_load');
-				_this.router.set($this.attr('href'));
+				_this.router.clearPage();
 			}, 1000);
 		}
 		else {
@@ -95,7 +95,7 @@ UI.prototype.initLinks = function() {
 		return false;
 	});
 	$(this.closeLinkSelector).on('click', function() {
-		_this.router.default();
+		_this.router.clearPage();
 		return false;
 	});
 };
