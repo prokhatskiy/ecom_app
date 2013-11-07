@@ -1,6 +1,120 @@
 @import "compass";
 .product-list{
 	}
+	.product-list__header {
+		overflow: hidden;
+		margin: 0 0 30px;
+		.product-list_big & .product-list__title-holder,
+		.profuct-list_small & .product-list__title-holder,
+		.product-list__title-holder {
+			width: 30%;
+			max-width: 511px;
+			height: 333px;
+			margin: 0;
+		}
+	}
+	.products-menu-holder {
+		overflow: hidden;
+		padding: 0 3%;
+	}
+	.products-menu {
+		height: 333px;
+		display: table;
+		min-width: 490px;
+		max-width: 700px;
+		width: 100%;
+		margin: 0 auto;
+	}
+		.products-menu__list {
+			list-style: none;
+			display: table-cell;
+			padding: 0;
+			vertical-align: middle;
+			margin: 0;
+			width: 40%;
+			&:first-child {
+				width: 60%;
+			}
+		}
+		.products-menu__item {
+			margin: 0 0 10px;
+			overflow: hidden;
+			a {
+				float: left;
+				text-decoration: none;
+				font: 20px/44px "Oswald Light", arial, sans-serif;
+				text-transform: uppercase;
+				padding: 0 12px 0 0;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			span {
+				padding: 0 15px 0 27px;
+				display: block;
+				height: 44px;
+				
+			}
+		}
+		.products-menu__item_active {
+			a {
+				background: url(../img/product-menu__item.png)  no-repeat 100% -56px;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			span {
+				background: url(../img/product-menu__item.png)  no-repeat;
+			}
+		}
+			.products-menu__count {
+				color: #969696;
+				font-size: 16px;
+				font-style: normal;
+				display: inline-block;
+				vertical-align: top;
+			}
+	.product-banner {
+		float: right;
+		position: relative;
+		width: 20%;
+		max-width:259px;
+		overflow: hidden; 
+	}
+		.product-banner__visual {
+			text-align: center;
+			width: 2000px;
+			position: relative;
+			left: 50%;
+			margin: 0 0 0 -1000px;
+		}
+			.product-banner__visual img {
+				vertical-align: top;
+			}
+		.product-banner__sale-ico {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 134px;
+			height: 134px;
+			background: url(../img/sale_big_ico.png) no-repeat;
+			text-align: center;
+			text-transform: uppercase;
+			color: #f32a64;
+			margin: -67px 0 0 -67px;
+			font: 28px/126px "Oswald Light", arial, sans-serif;
+		}
+		.product-banner__text {
+			position: absolute;
+			top: 50%;
+			margin: 22px 0 0;
+			left: 10px;
+			right: 10px;
+			text-align: center;
+			font:13px/14px "Oswald", arial, sans-serif;
+			color: #262626;
+			text-transform: uppercase;
+		}
 	.product-list__filters {
 		background: #f9f9f9;
 		position: relative;
@@ -13,13 +127,14 @@
 			float: left;
 			list-style: none;
 			margin: 0;
+			width: 60%;
 			padding: 0;}
 			.product-list__filters-list__item {
 				float: left;
 				text-transform: uppercase;
 				color: #828282;
 				height: 36px;
-				min-width: 135px;
+				min-width: 10%;
 				font: 13px/38px 'Oswald Light', arial, sans-serif;
 				border-right: 1px solid #e5e5e5;
 				padding: 0 15px;}
@@ -30,7 +145,6 @@
 				margin: -1px 0;
 				padding: 0;
 				line-height: 40px;
-				min-width: 0;
 				border: none;
 				a {
 					display: block;
@@ -86,7 +200,7 @@
 			text-align: center;
 			padding: 0 0 5px;
 			height: 225px;
-			@include transition(all 0.5s);
+			@include transition(all $t);
 			img {
 				max-width: 100%;
 				max-height: 100%;
@@ -167,7 +281,7 @@
 		.product-list__title {
 			position: absolute;
 			bottom: 70px;
-			@include transition(bottom 0.5s);
+			@include transition(bottom $t);
 			width: 100%;
 			margin: 0;
 			text-transform: uppercase;
@@ -200,6 +314,15 @@
 	}
 	.product-list__title {
 		bottom: 110px;
+	}
+}
+.product-list_random {
+	.product-list_item,
+	.product-list__item__visual {
+		height: auto;
+	}
+	.product-list__item__visual {
+		padding-bottom: 10px;
 	}
 }
 .product-list__view-types {
@@ -247,7 +370,7 @@
 	opacity: 0;
 	z-index: 10;
 	width: 100%;
-	@include transition(opacity 0.5s ease, left 0s 0.5s linear);
+	@include transition(opacity $t ease, left 0s $t linear);
 	height: 100%;
 	font: 13px'Oswald Light', arial, sans-serif;
 	background: rgba(51,51,51,0.6);
@@ -256,13 +379,13 @@
 .products-categories_active {
 	opacity: 1;
 	left: 0;
-	@include transition(opacity 0.5s ease, left 0s 0s linear);
+	@include transition(opacity $t ease, left 0s 0s linear);
 	.products-categories__content {
 		left: 0;
 	}
 }
 	.products-categories__content {
-		@include transition(left 0.5s ease);
+		@include transition(left $t ease);
 		background: #fff;
 		position: absolute;
 		bottom: 55px;
@@ -362,11 +485,11 @@
 /**** Isotope CSS3 transitions ****/
 .isotope,
 .isotope .isotope-item {
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-      -ms-transition-duration: 0.8s;
-       -o-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+  -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+      -ms-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
 }
 
 .isotope {

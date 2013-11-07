@@ -1,0 +1,76 @@
+@import "compass";
+.product-popup-holder {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: $fh;
+	top: $hh;
+	z-index: 1;
+	background: rgba(51,51,51,0.6);
+}
+.product-popup {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width:466px;
+	left: 50%;
+	margin-left: -233px;
+}
+	.popup__close {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		text-indent: -9999px;
+		width: 11px;
+		height: 11px;
+		overflow: hidden;
+		opacity: 0.6;
+		background: url(../img/popup-close.png)  no-repeat;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.product-popup__content {
+		height: 100%;
+		position: relative;
+		z-index: 5;
+		background: #fff;
+		box-shadow: 0 0 18px rgba(0,0,0,0.45);
+	}
+	.popup__control-btns {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		right: 100%;
+		top: 0;
+		width: 43px;
+	}
+		.popup__control-btns__item{
+			margin: 0 0 1px;
+		}
+		.popup__control-btns__btn {
+			display: block;
+			position: relative;
+			width: 52px;
+			@include transition(left 0.2s);
+			background: #fff 40% 50% no-repeat;
+			text-indent: -9999px;
+			overflow: hidden;
+			height: 43px;
+			&:hover {
+				left: -9px;
+			}
+		}
+		.popup__control-btns__btn_wish {
+			background-image: url(../img/wish-ico2.png);
+		}
+		.popup__control-btns__btn_compare {
+			background-image: url(../img/compare-ico.png);
+		}
+@media screen and (max-height: $maxHeight){
+	.product-popup-holder {
+		bottom: $fh_s;
+		top: $hh_s;
+	}
+}
