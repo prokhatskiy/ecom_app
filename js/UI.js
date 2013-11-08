@@ -8,6 +8,7 @@ var UI = function(conf) {
 	this.ESC = 27;
 	this.linkSelector = '.link';
 	this.linkActionSelector = '.link_action';
+	this.linkMenuSelector = '.link_menu';
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
@@ -78,6 +79,10 @@ UI.prototype.initScroll = function(selector) {
 UI.prototype.initLinks = function() {
 	var _this = this;
 
+	$(this.linkMenuSelector).on('click', function() {
+		var id = $(this).attr('href');
+		
+	});
 	$(this.linkSelector).on('click', function() {
 		_this.router.set($(this).attr('href'));		
 		return false;
