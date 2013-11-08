@@ -380,78 +380,16 @@ body {
   -moz-transition: top 0.3s;
   -o-transition: top 0.3s;
   transition: top 0.3s;
-<<<<<<< HEAD
-  height: 75px;
-  line-height: 75px;
-  width: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  height: 75px;
-  line-height: 75px; }
-
-.l-brands {
-  top: -75px;
-=======
-  height: 50px;
-  line-height: 50px; }
-
-.l-brands {
-  top: -50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  height: 50px;
-  line-height: 50px; }
-
-.l-brands {
-  top: -50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-  z-index: 3;
-  background-color: #474747; }
-=======
-=======
   right: 0;
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
   left: 0;
   width: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  height: 75px;
-  line-height: 75px; }
-
-.l-brands {
-  top: -75px;
-<<<<<<< HEAD
-  z-index: 3; }
->>>>>>> parent of 0eec459... added product list 2
-=======
-  left: 0;
-  right: 0; }
-
-.l-brands {
-  background-color: #474747;
-  top: -75px;
-  z-index: 3; }
->>>>>>> parent of 0eec459... added product list 2
-=======
-=======
   height: 50px;
   line-height: 50px; }
 
 .l-brands {
   top: -50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  height: 50px;
-  line-height: 50px; }
-
-.l-brands {
-  top: -50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
   z-index: 3;
   background-color: #474747; }
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
 
 .l-header {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -463,45 +401,18 @@ body {
   background-color: #FFF; }
 
 .l-content {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s; }
-
-.l-content {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  top: 75px;
-=======
   top: 50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  top: 50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  left: 0;
->>>>>>> parent of 0eec459... added product list 2
-=======
-  left: 0;
->>>>>>> parent of 0eec459... added product list 2
-  right: 0;
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
-  top: 75px;
-=======
-  top: 50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  top: 50px;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
   right: 0;
   bottom: 50px;
   left: 0;
   z-index: 1;
-  background-color: #FFF; }
+  background-color: #FFF;
+  width: 100%;
+  display: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
 
 .l-footer {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -523,11 +434,6 @@ body {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
   transition: all 0.3s;
   position: absolute;
   top: 100%;
@@ -536,26 +442,9 @@ body {
   left: 0;
   z-index: 1;
   overflow: hidden;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  padding: 75px 0 50px 0;
-=======
   padding: 50px 0 50px 0;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  padding: 50px 0 50px 0;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
   width: 100%;
   height: 100%; }
-<<<<<<< HEAD
-=======
-  transition: all 0.3s; }
->>>>>>> parent of 0eec459... added product list 2
-=======
-  transition: all 0.3s; }
->>>>>>> parent of 0eec459... added product list 2
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
   .l-mapstore.active {
     top: 50px; }
 
@@ -567,11 +456,6 @@ body {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
     transition: all 0.3s;
     position: absolute;
     top: 100%;
@@ -579,26 +463,9 @@ body {
     left: 0;
     z-index: 1;
     overflow: hidden;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    padding: 75px 0 50px 0;
-=======
     padding: 50px 0 50px 0;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-    padding: 50px 0 50px 0;
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
     width: 100%;
     height: 100%; }
-<<<<<<< HEAD
-=======
-    transition: all 0.3s; }
->>>>>>> parent of 0eec459... added product list 2
-=======
-    transition: all 0.3s; }
->>>>>>> parent of 0eec459... added product list 2
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
     .l-mapstore.active {
       top: 0; } }
 .state_map .l-mapstore {
@@ -738,31 +605,9 @@ body {
 .state_login .l-login {
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   right: 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  z-index: 6; }
-=======
   z-index: 8; }
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-=======
-  z-index: 8; }
->>>>>>> 0eec4592d2271d2bae8aae3ce3cb22ac94950633
-<<<<<<< HEAD
-=======
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
->>>>>>> parent of 0eec459... added product list 2
-=======
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); }
->>>>>>> parent of 0eec459... added product list 2
-=======
->>>>>>> eea118c29a1e2af47b88c63e1a97ec4c15c8763d
 .state_login .l-content {
   right: 360px;
   left: -360px; }
@@ -973,6 +818,15 @@ body {
     display: none; }
   .l-grid .l-grid__i_b2 {
     height: 100%; } }
+.page_home .l-content_home {
+  display: block; }
+
+.page_category .l-content_category {
+  display: block; }
+
+.page_products .l-content_products {
+  display: block; }
+
 /* ==========================================================================
    brands
    ========================================================================== */
@@ -984,8 +838,8 @@ body {
 .brands .brands__l {
   display: table-cell;
   height: 50px;
-  vertical-align: middle;
   text-align: center;
+  vertical-align: middle;
   line-height: 18px; }
 .brands .brands__viewer {
   height: 47px;
@@ -1326,7 +1180,7 @@ body {
     display: none;
     position: absolute;
     left: 43px;
-    top: 61px;
+    top: 43px;
     width: 420px;
     margin: 0;
     padding: 0;
@@ -1365,10 +1219,12 @@ body {
     padding: 5px 18px; }
   .search .search__result-i:hover {
     background-color: #f6f6f6; }
+  .search .search__result-num {
+    float: right; }
 
 @media screen and (max-height: 800px) {
   .search .search__result {
-    top: 61px; }
+    top: 43px; }
   .search .search__result_hide {
     top: -300px; } }
 .search_open .search__tumbler {

@@ -7,6 +7,7 @@ var UI = function(conf) {
 	this.$win  = $(window);
 	this.ESC = 27;
 	this.linkSelector = '.link';
+	this.linkActionSelector = '.link_action';
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
@@ -17,9 +18,6 @@ var UI = function(conf) {
 	this.$win.on('load:end', function() {
 		_this.load(false);
 	});
-
-	//Begin load
-	this.$body.trigger('load:start');
 
 	//events
 	this.$win.on('resize', function() {
@@ -60,7 +58,7 @@ var UI = function(conf) {
 	$('#signOut').on('click', function() {
 		$('#loginBtn').show();
 		$('#userBtn').hide();
-		ui.default();
+		_this.router.clearStates();
 		return false;
 	});
 
@@ -79,25 +77,30 @@ UI.prototype.initScroll = function(selector) {
 
 UI.prototype.initLinks = function() {
 	var _this = this;
+
 	$(this.linkSelector).on('click', function() {
+		_this.router.set($(this).attr('href'));		
+		return false;
+	});
+	$(this.linkActionSelector).on('click', function() {
 		var $this = $(this);
 		if($this.hasClass('login')) {
 			$this.addClass('btn_load');
 			setTimeout(function() {
 				$this.removeClass('btn_load');
-				_this.router.clearPage();
+				_this.router.setState('user');
 			}, 1000);
 		}
 		else {
-			_this.router.set($(this).attr('href'));
+			_this.router.setState($(this).attr('href'));
 		}
 		
 		return false;
 	});
-	$(this.closeLinkSelector).on('click', function() {
-		_this.router.clearPage();
+	$(this.closeLinkSelector).on('click', $.proxy(function() {
+		this.router.clearStates();
 		return false;
-	});
+	}, this));
 };
 
 UI.prototype.refreshScroll = function($el) {
@@ -116,15 +119,12 @@ UI.prototype.onLoad = function() {
 	search.init();
 	_this.ProductList = new ProductList();
 
-	setTimeout(function() {	
-		//location message
-		$('#messageLang').removeClass('hide');	
-		_this.locationTimeout();	
-		_this.$body.trigger('load:end');
-		_this.router = new Router();
-		Backbone.history.start();
-		_this.map = new Map();	
-	}, 1000);	
+	//location message
+	$('#messageLang').removeClass('hide');	
+	_this.locationTimeout();	
+	_this.router = new Router();
+	Backbone.history.start();
+	_this.map = new Map();		
 };
 
 UI.prototype.locationTimeout = function() {

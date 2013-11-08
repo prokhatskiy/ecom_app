@@ -427,7 +427,7 @@
 		display: none;
 		position: absolute;
 		left: 43px;
-		top: 61px;
+		top: 43px;
 		width: 420px;
 		margin: 0;
 		padding: 0;
@@ -479,12 +479,16 @@
 			background-color: #f6f6f6;
 		}
 	}
+
+	.search__result-num{
+		float: right;
+	}
 }
 
 @media screen and (max-height : $maxHeight) {
 	.search{
 		.search__result{
-			top: 61px - ($hh - $hh_s);
+			top: 43px;
 		}
 		.search__result_hide{
 			top: -300px;

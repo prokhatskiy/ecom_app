@@ -3,100 +3,91 @@ var Router = Backbone.Router.extend({
 
 	homePath : 'home',
 	currentPage : '',
-	currentAction : '',
-	currentNum : '',
-
-	$menus : $('.menu'), 
-
-	pages : ['home', 'category', 'products', 'product'],
-	actions : ['settings', 'cart', 'wishlist', 'login', 'user', 'menu', 'map'],
-	menus : ['women', 'men', 'kids', 'home'],
+	currentState : '',
 
 	routes: {
 		':page(/:action)(/*path)' : 'handler',
 		'*path' : 'default'
 	},
 
-	handler : function(page, action, num) {
+	handler : function(page, state) {
 		var page = page || false,
-		    action = action || false,
-		    num = num || false;
+		    state = state || false;
 
 		if(page && page != this.currentPage) {
-			this.setAction(page, 'page', this.pages);			
+			this.setPageCls(page);			
 		}
 		else if(!page) {
 			this.default();
 			return false;
-		}
+		}		
 
-		if(action && action != this.currentAction) {
-			this.setAction(action, 'state', this.actions);			
+		if(state && state != this.currentState) {
+			this.setStateCls(state);			
 		}	
-		else if(!action) {
-			this.clearClasses('state');
+		else if(!state) {
+			this.clearClasses('state');	
 		}
 	},
 
-	setAction : function(action, prefix, states) {
-		if(states.join(' ').indexOf(action) === -1) {
-			this.default();
-			return false;
-		}
+	setPageCls : function(page, callback) {
+		if(!page) return false;
 
-		this.clearClasses(prefix);
-		this.$body.addClass( prefix + '_' + action);
+		this.$body.trigger('load:start');		
 
-		switch(prefix) {
-			case 'page' : 
-				this.currentPage = action; break;
-			case 'state' : 
-				this.currentAction = action; break;
-		}
+		setTimeout($.proxy(function() {
+			this.clearClasses('page');
+			this.$body.trigger('load:end');
+			this.$body.addClass('page_' + page);
+			this.$body.trigger('load:page', page);
+			this.currentPage = page;
+
+			if(typeof callback === 'function') {
+				callback();
+			}
+		}, this), 1000);
 	},
 
-	clearClasses : function(action) {	
-		var prefix = '',
-		    clss = [],
-		    clsArr = [],
-		    clsStr = '';
-
-		if (action === 'page') {
-			prefix = 'page';
-		    clss = this.pages;
-		}
-		else if (action === 'state') {
-			prefix = 'state';
-		    clss = this.actions;
-		}
-		else {
-			return false;
-		}
-
-		for (var i = 0; i < clss.length; i++) {
-			clsArr[i] = prefix + '_' + clss[i];
-		};
-
-		clsStr = clsArr.join(' ');
-		console.log(this.$body.removeClass(clsStr))
-		this.$body.removeClass(clsStr);
+	setStateCls : function(state) {
+		if(!state) return false;
+		this.clearClasses('state');
+		this.$body.addClass('state_' + state);
+		this.currentState = state;
 	},
 
-	clearPage : function() {
-		this.set(this.currentPage);
-		this.currentAction = '';
+	setState : function(state) {
+		if(!state) return;
+		var path = this.get();
+		console.log(this.get())
+		this.set(path[0] + '/' + state);
+	},
+
+	clearStates : function() {
+		this.clearClasses('state');	
+		this.set(this.get()[0]);
+		this.currentState = '';
 	},
 
 	default : function() {
-		this.clearCls('page', this.pages);
-		this.clearCls('state', this.actions);		
-		this.currentPage = this.homePath;
-		this.currentAction = '';
+		this.clearClasses('page');
+		this.clearClasses('state');		
+		this.set(this.homePath);
+	},
 
-		$('#brands .brands__viewer').removeClass('brands__viewer_active');
+	clearClasses : function(prefix) {
+		var cls = this.$body.attr('class').split(' ');
+		for (var i = 0, l = cls.length; i < l; i++) {
+			if(new RegExp(prefix + '_').test(cls[i])) {
+				this.$body.removeClass(cls[i]);
+			}
+		};
 	},
 
 	set : function(path) {
 		document.location.hash = path;
+	},
+
+	get : function() {
+		return document.location.hash.slice(1).split('/')
 	}
 });
