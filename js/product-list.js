@@ -28,6 +28,9 @@ ProductList.prototype.initIsotope = function(elem, conf){
 		$(window).resize(function(){
 			_this.isotopeElem.isotope('reLayout');
 		});
+		$('body').on('load:page', function() {
+			_this.isotopeElem.isotope('reLayout');
+		});
 	}
 };
 ProductList.prototype.initCategoriesList = function(){

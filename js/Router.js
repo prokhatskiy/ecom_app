@@ -1,42 +1,93 @@
 var Router = Backbone.Router.extend({
-	body : document.body,
+	$body : $('body'),
+
 	homePath : 'home',
-	$menus : $('.menu'), 
-	pages : ['home', 'category', 'products', 'product'],
-	pathArr : ['settings', 'cart', 'wishlist', 'login', 'user', 'menu', 'map'],
+	currentPage : '',
+	currentState : '',
+
 	routes: {
-		'home/menu/*path' : 'menuHandler',
-		'home/*path' : 'handler',
+		':page(/:action)(/*path)' : 'handler',
 		'*path' : 'default'
 	},
 
-	test : function(page, action) {
-		console.log(page,action);
+	handler : function(page, state) {
+		var page = page || false,
+		    state = state || false;
+
+		if(page && page != this.currentPage) {
+			this.setPageCls(page);			
+		}
+		else if(!page) {
+			this.default();
+			return false;
+		}		
+
+		if(state && state != this.currentState) {
+			this.setStateCls(state);			
+		}	
+		else if(!state) {
+			this.clearClasses('state');	
+		}
 	},
 
-	handler : function(path) {			
-		var arr = this.pathArr,
-		    l = arr.length;
-		for (var i = 0; i < l; i++) {
-			if(arr[i] === path) {
-				this.body.className = 'state_' + path;
-				if(path === 'brands') { 
-					brands.activateBtn();
-				}
-				return path;
-			}		
-		};
-		this.default();			
+	setPageCls : function(page, callback) {
+		if(!page) return false;
+
+		this.$body.trigger('load:start');		
+
+		setTimeout($.proxy(function() {
+			this.clearClasses('page');
+			this.$body.trigger('load:end');
+			this.$body.addClass('page_' + page);
+			this.$body.trigger('load:page', page);
+			this.currentPage = page;
+
+			if(typeof callback === 'function') {
+				callback();
+			}
+		}, this), 1000);
 	},
-	menuHandler : function(path) {
-		this.body.className = 'state_menu state_menu_' + path;
+
+	setStateCls : function(state) {
+		if(!state) return false;
+		this.clearClasses('state');
+		this.$body.addClass('state_' + state);
+		this.currentState = state;
 	},
+
+	setState : function(state) {
+		if(!state) return;
+		var path = this.get();
+		console.log(this.get())
+		this.set(path[0] + '/' + state);
+	},
+
+	clearStates : function() {
+		this.clearClasses('state');	
+		this.set(this.get()[0]);
+		this.currentState = '';
+	},
+
 	default : function() {
+		this.clearClasses('page');
+		this.clearClasses('state');		
 		this.set(this.homePath);
-		$('#brands .brands__viewer').removeClass('brands__viewer_active');
-		this.body.className = '';
 	},
+
+	clearClasses : function(prefix) {
+		var cls = this.$body.attr('class').split(' ');
+		for (var i = 0, l = cls.length; i < l; i++) {
+			if(new RegExp(prefix + '_').test(cls[i])) {
+				this.$body.removeClass(cls[i]);
+			}
+		};
+	},
+
 	set : function(path) {
 		document.location.hash = path;
+	},
+
+	get : function() {
+		return document.location.hash.slice(1).split('/')
 	}
 });

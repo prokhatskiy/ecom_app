@@ -75,16 +75,15 @@ body{
 }
 
 .l-content{
-	@include transition(all $t);
-}
-
-.l-content{
 	top: $hh;
 	right: 0;
 	bottom: $fh;
 	left: 0;
 	z-index: 1;
 	background-color: #FFF;
+	width: 100%;
+	display: none;
+	@include transition(all $t);
 }
 
 .l-footer{
@@ -570,5 +569,22 @@ $states : women, men, kids, home;
 		.l-grid__i_b2{
 			height: 100%;
 		}
+	}
+}
+
+
+.page_home{
+	.l-content_home{
+		display: block;
+	}
+}
+.page_category{
+	.l-content_category{
+		display: block;
+	}
+}
+.page_products{
+	.l-content_products{
+		display: block;
 	}
 }

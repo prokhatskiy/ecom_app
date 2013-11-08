@@ -45,5 +45,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-include-replace');
 
-  grunt.registerTask( 'default', ['connect']);
+  grunt.registerTask( 'build', ['compass','clean:css', 'includereplace']);
+  grunt.registerTask( 'default', ['build', 'watch']);
 };
