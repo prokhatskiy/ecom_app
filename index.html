@@ -16,14 +16,270 @@
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png" />
 
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/styles.min.css">
     </head>
     <body class="state_load">                
         <div class="l-wrapper">
 		<!-- .l-content -->
-<<<<<<< HEAD
-		<section class="l-content product-list product-list_random">
-=======
+		<section class="l-content product-page" id="product">
+			<!-- .product-list__filters -->
+			<section class="product-list__filters">
+				<ul class="product-list__filters-list">
+					<li class="product-list__filters-list__item products-categories-opener">
+						<a href="#">TOPS&amp;BLOUSES</a>
+					</li>
+					<li class="product-list__filters-list__item">
+						Features
+						<select class='product-list__filters__select'>
+							<option>Features</option>
+							<option>Features</option>
+							<option>Features</option>
+							<option>Features</option>
+						</select>
+					</li>
+					<li class="product-list__filters-list__item">
+						Brands
+						<select class='product-list__filters__select'>
+							<option>Brands</option>
+							<option>Brands</option>
+							<option>Brands</option>
+							<option>Brands</option>
+						</select>
+					</li>
+					<li class="product-list__filters-list__item">
+						Colors
+						<select class='product-list__filters__select'>
+							<option>Colors</option>
+							<option>Colors</option>
+							<option>Colors</option>
+							<option>Colors</option>
+						</select>
+					</li>
+					<li class="product-list__filters-list__item">
+						Size
+						<select class='product-list__filters__select'>
+							<option>Size</option>
+							<option>Size</option>
+							<option>Size</option>
+							<option>Size</option>
+						</select>
+					</li>
+					<li class="product-list__filters-list__item">
+						Price
+						<select class='product-list__filters__select'>
+							<option>Price</option>
+							<option>Price</option>
+							<option>Price</option>
+							<option>Price</option>
+						</select>
+					</li>
+					<li class="product-list__filters-list__item">
+						Sort by
+						<select class='product-list__filters__select'>
+							<option>Sort by</option>
+							<option>Sort by</option>
+							<option>Sort by</option>
+							<option>Sort by</option>
+						</select>
+					</li>
+				</ul>
+				<ul class="product-list__view-types">
+					<li class="product-list__view-type product-list__view-type_small">
+						<input checked type="radio" name="view-type" value="product-list_small" id="small-products-view">
+						<label class="product-list__view-type__ico" for="small-products-view"><i></i><i></i><i></i><i></i><i></i></label>
+					</li>
+					<li class="product-list__view-type product-list__view-type_big">
+						<input type="radio" name="view-type" value="product-list_big" id="big-products-view">
+						<label class="product-list__view-type__ico" for="big-products-view"><i></i><i></i><i></i><i></i></label>
+					</li>
+				</ul>
+			</section>
+			<!-- /.product-list__filters -->
+			<!-- .product-list-holder -->
+			<section class="product-list-holder">
+				<div class="isotope">
+					<div class="product-list__title-holder">
+						<span class="product-list__title-holder__visual"><img src="temp/pictures_10.jpg" class='product-list__title__bg'></span>
+						<h1 class="product-list__title">Tops &amp; Blouses</h1>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_11-w.jpg"></a>
+							</figure>
+							<ul class="product-colors">
+								<li class="product-colors__item"><input checked type="radio" name="group1" id="color-input1" value="temp/pictures_11-w.jpg"><label class="product-color product-color_white" for="color-input1"></label></li>
+								<li class="product-colors__item"><input name="group1" type="radio" id="color-input2" value="temp/pictures_11.jpg"><label class="product-color product-color_light-grey" for="color-input2"></label></li>
+								<li class="product-colors__item"><input name="group1" type="radio" id="color-input3" value="temp/pictures_11-g.jpg"><label class="product-color product-color_grey" for="color-input3"></label></li>
+							</ul>
+							<div class="product-list__item__name">
+								LONG SLEEVE FLOWY SHIRT
+							</div>
+							<div class="product-list__item__price">59.90$</div>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_12.jpg"></a>
+							</figure>
+							<div class="product-list__item__name">
+								Blouse with Kimono Sleeve and Seam Detail
+							</div>
+							<div class="product-list__item__rating">
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+							</div>
+							<div class="product-list__item__price">39.90$</div>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_13.jpg"></a>
+							</figure>
+							<div class="product-list__item__name">
+								TWIN FLAP FLOWY BLOUSE
+							</div>
+							<div class="product-list__item__rating">
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+							</div>
+							<div class="product-list__item__price">60$</div>
+							<span class="product-list__item__sale">SALE</span>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_14.jpg"></a>
+							</figure>
+							<ul class="product-colors">
+								<li class="product-colors__item"><input checked type="radio" name="group2" id="color-input4" value="temp/pictures_14.jpg"><label class="product-color product-color_grey-black" for="color-input4"></label></li>
+								<li class="product-colors__item"><input value="temp/pictures_14-b.jpg" name="group2" type="radio" id="color-input5"><label class="product-color product-color_grey-blue" for="color-input5"></label></li>
+							</ul>
+							<div class="product-list__item__name">
+								SATIN FINISH FLOWY BLOUSE
+							</div>
+							<div class="product-list__item__price">34.99$</div>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_15.jpg"></a>
+							</figure>
+							<div class="product-list__item__name">
+								TWIN FLAP FLOWY BLOUSE
+							</div>
+							<div class="product-list__item__rating">
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+							</div>
+							<div class="product-list__item__price">39.90$</div>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_16.jpg"></a>
+							</figure>
+							<div class="product-list__item__name">
+								SATIN FINISH FLOWY BLOUSE
+							</div>
+							<div class="product-list__item__price">34.99$</div>
+							<span class="product-list__item__sale">SALE</span>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_17.jpg"></a>
+							</figure>
+							<div class="product-list__item__name">
+								 Blouse with Kimono Sleeve and Seam Detail
+							</div>
+							<div class="product-list__item__price">39.90$</div>
+						</form>
+					</div>
+					<div class="isotope__item product-list__item">
+						<form action="#">
+							<figure class="product-list__item__visual">
+								<a href="#"><img src="temp/pictures_18.jpg"></a>
+							</figure>
+							<ul class="product-colors">
+								<li class="product-colors__item"><input checked type="radio" name="group3" value="temp/pictures_18.jpg" id="color-input6"><label class="product-color product-color_purple" for="color-input6"></label></li>
+								<li class="product-colors__item"><input name="group3" type="radio" id="color-input7" value="temp/pictures_18-b.jpg"><label class="product-color product-color_grey" for="color-input7"></label></li>
+							</ul>
+							<div class="product-list__item__name">
+								TWIN FLAP FLOWY BLOUSE
+							</div>
+							<div class="product-list__item__rating">
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+								<span class="star">&nbsp;</span>
+							</div>
+							<div class="product-list__item__price">60$</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<!-- /.product-list__filters -->
+		</section>
+		<!-- /.l-content -->
+		<nav class="products-categories">
+			<div class='products-categories__content'>
+				<div class="products-categories__title-holder"><a href="#" class="products-categories__title">TOPS&amp;BLOUSES</a></div>
+				<div class="products-categories__type"><i class="text-arrow">←</i> women</div>
+				<ul class="products-categories__list scroll">
+					<li class="products-categories__list__item">
+						<div class="products-categories__list__head">APPAREL</div>
+						<ul class="products-categories__sub-list">
+							<li class="products-categories__sub-list__item products-categories__sub-list__item_active"><a href="#">Tops &amp; Blouses</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Knits &amp; Tees</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Pants &amp; Slacks</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Skirts</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Dresses</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Denim</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">By Designer</a></li>
+						</ul>
+					</li>
+					<li class="products-categories__list__item">
+						<div class="products-categories__list__head">Accessories</div>
+						<ul class="products-categories__sub-list">
+							<li class="products-categories__sub-list__item"><a href="#">H&amp;bags</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Scarves &amp; Wraps</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Sunglasses</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Jewelry</a></li>
+						</ul>
+					</li>
+					<li class="products-categories__list__item">
+						<div class="products-categories__list__head">SHOES</div>
+						<ul class="products-categories__sub-list">
+							<li class="products-categories__sub-list__item"><a href="#">Boots</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Flats</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Pumps</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Heels</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Athletic</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">By Designer</a></li>
+						</ul>
+					</li>
+					<li class="products-categories__list__item">
+						<div class="products-categories__list__head products-categories__list__head_sale">Sale</div>
+						<ul class="products-categories__sub-list">
+							<li class="products-categories__sub-list__item"><a href="#">Boots</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Flats</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Pumps</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Heels</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">Athletic</a></li>
+							<li class="products-categories__sub-list__item"><a href="#">By Designer</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- .l-content -->
 		<section class="l-content l-content_home" id="index">
 			<!-- .l-grid -->
 			<div class="l-grid">
@@ -366,12 +622,11 @@
 		</nav>
 		<!-- .l-content -->
 		<section class="l-content l-content_products product-list" id="products">
->>>>>>> 904ef262e4c134e451bdba1e6fc0c3a6920ead34
 			<!-- .product-list__filters -->
 			<section class="product-list__filters">
 				<ul class="product-list__filters-list">
 					<li class="product-list__filters-list__item products-categories-opener">
-						<a href="#">Apparel</a>
+						<a href="#">TOPS&amp;BLOUSES</a>
 					</li>
 					<li class="product-list__filters-list__item">
 						Features
@@ -442,36 +697,11 @@
 			<!-- /.product-list__filters -->
 			<!-- .product-list-holder -->
 			<section class="product-list-holder">
-				<header class="product-list__header">
-					<div class="product-list__title-holder">
-						<span class="product-list__title-holder__visual"><img src="temp/banner__8.jpg" class='product-list__title__bg'></span>
-						<h1 class="product-list__title">Apparel</h1>
-					</div>
-					<div class="product-banner">
-						<figure class="product-banner__visual">
-							<img src="temp/banner__7.jpg">
-						</figure>
-						<span class="product-banner__sale-ico">SALE</span>
-						<span class="product-banner__text">great sale of summer collection</span>
-					</div>
-					<nav class="products-menu-holder">
-						<div class='products-menu'>
-							<ul class="products-menu__list">
-								<li class="products-menu__item products-menu__item_active"><a href="#"><span>New for Fall <i class="products-menu__count">- 765</i></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>Tops &amp; Blouses<i class="products-menu__count"> - 76</i></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>Knits &amp; Tees<i class="products-menu__count"> - 321</i></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>Pants &amp; Slacks<i class="products-menu__count"> - 28</i></span></a></li>
-							</ul>
-							<ul class="products-menu__list">
-								<li class="products-menu__item"><a href="#"><span>Skirts<span class="products-menu__count"> - 21</span></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>Dresses<span class="products-menu__count"> - 65</span></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>Denim<span class="products-menu__count"> - 1709</span></span></a></li>
-								<li class="products-menu__item"><a href="#"><span>By Designer<span class="products-menu__count"> - 231</span></span></a></li>
-							</ul>
-						</div>
-					</nav>
-				</header>
 				<div class="isotope">
+					<div class="product-list__title-holder">
+						<span class="product-list__title-holder__visual"><img src="temp/pictures_10.jpg" class='product-list__title__bg'></span>
+						<h1 class="product-list__title">Tops &amp; Blouses</h1>
+					</div>
 					<div class="isotope__item product-list__item">
 						<form action="#">
 							<figure class="product-list__item__visual">
@@ -600,7 +830,7 @@
 		<!-- /.l-content -->
 		<nav class="products-categories">
 			<div class='products-categories__content'>
-				<div class="products-categories__title-holder"><a href="#" class="products-categories__title">Apparel</a></div>
+				<div class="products-categories__title-holder"><a href="#" class="products-categories__title">TOPS&amp;BLOUSES</a></div>
 				<div class="products-categories__type"><i class="text-arrow">←</i> women</div>
 				<ul class="products-categories__list scroll">
 					<li class="products-categories__list__item">
@@ -1463,11 +1693,7 @@
 		</div>
 	</div>
 	<!-- /.l-help -->
-<<<<<<< HEAD
 <!-- include('../blocks/product-popup.html')-->
-=======
-<!--include('../blocks/product-popup.html') -->
->>>>>>> 904ef262e4c134e451bdba1e6fc0c3a6920ead34
 		</div>
 <script type="text/javascript"
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA4NQQqOIVCndI4jGzuHGoMI-qJtQvZ-HQ&sensor=true">
