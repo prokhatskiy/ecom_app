@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           config: 'config.rb',
-          cssDir: 'css',
+          cssDir: 'scss',
           environment: 'production'
         }
       }
@@ -20,14 +20,36 @@ module.exports = function(grunt) {
         dest: '.'
       }
     },
+    stylus: {
+      compile: {
+        options: {
+          paths: ['stylus/']
+        },
+        files: {
+          'stylus/styles.css': ['stylus/_*.styl'] // compile and concat into single file
+        }
+      }
+    },
     watch: {
-      css: {
-        files: ['scss/*.scss', 'blocks/*.html', 'layouts/*.html'],
-        tasks: ['compass','clean:css', 'includereplace']
+      stylus: {
+        files: ['stylus/_*.styl'],
+        tasks: ['stylus','concat']
       },
+      compass:{
+         files: ['scss/*.scss'],
+         tasks: ['compass','concat']
+      },
+      html: {
+        files: ['blocks/*.html', 'layouts/*.html'],
+        tasks: ['includereplace']
+      },
+      minifier: {
+        files: ['css/styles.css'],
+        tasks: ['cssmin']
+      }
     },
     clean: {
-      css: ["css/_*.css"],
+      css: ["scss/_*.css"],
     },
     connect : {
       server : {
@@ -36,6 +58,24 @@ module.exports = function(grunt) {
           keepalive : true
         }
       }
+    },
+    concat: {
+      options: {
+        separator: '\n',
+      },
+      dist: {
+        src: ['scss/styles.css','stylus/styles.css'],
+        dest: 'css/styles.css',
+      },
+    },
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: 'css/',
+        src: ['styles.css'],
+        dest: 'css/',
+        ext: '.min.css'
+      }
     }
   });
 
@@ -43,8 +83,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-include-replace');
 
-  grunt.registerTask( 'build', ['compass','clean:css', 'includereplace']);
+  grunt.registerTask( 'build', ['compass','stylus','concat', 'includereplace','cssmin']);
   grunt.registerTask( 'default', ['build', 'watch']);
 };
