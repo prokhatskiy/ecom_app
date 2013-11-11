@@ -283,16 +283,12 @@ body{
 	}
 
 	.l-content{
-		top: $hh;
-		bottom: -$hh; 
+		top: $hh*2;
+		bottom: -$hh*2; 
 	}
 }
 
 .state_settings{
-	.l-content{
-		margin-top: -$sh;
-	}
-
 	.l-settings{
 		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		bottom: 0;
@@ -305,11 +301,6 @@ body{
 		.l-header{
 			top: $hh_s;
 		}
-
-		.l-content{
-			top: $hh_s;
-			bottom: -$hh_s; 
-		}
 	}
 }
 
@@ -319,12 +310,7 @@ body{
 	.l-login{
 		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
-		z-index: 8;
-	}
-
-	.l-content{
-		right: $uw;
-		left: -$uw;
+		z-index: 6;
 	}
 }
 
@@ -334,11 +320,6 @@ body{
 		right: 0;
 		z-index: 6;
 	}
-
-	.l-content{
-		right: $uw;
-		left: -$uw;
-	}
 }
 
 .state_cart{
@@ -347,11 +328,6 @@ body{
 		right: 0;
 		z-index: 6;
 	}
-
-	.l-content{
-		right: $cw;
-		left: -$cw;
-	}
 }
 
 .state_wishlist{
@@ -359,22 +335,6 @@ body{
 		@include box-shadow(0 0 20px rgba(0, 0, 0, 4/10));
 		right: 0;
 		z-index: 6;
-	}
-
-	.l-content{
-		right: $cw;
-		left: -$cw;
-	}
-}
-
-
-@media screen and (max-width : $maxWidth) {
-	.state_cart,
-	.state_wishlist{
-		.l-content{
-			right: $cw_s;
-			left: -$cw_s;
-		}
 	}
 }
 
@@ -425,7 +385,11 @@ $states : women, men, kids, home;
 	}
 }
 
-.state_load{
+/* ==========================================================================
+   loading
+   ========================================================================== */
+
+.loading{
 	&:after{
 		position: fixed;
 		top: 0;
@@ -572,19 +536,16 @@ $states : women, men, kids, home;
 	}
 }
 
+/* ==========================================================================
+   pages
+   ========================================================================== */
+   
+$pages : home category products product;
 
-.page_home{
-	.l-content_home{
-		display: block;
-	}
-}
-.page_category{
-	.l-content_category{
-		display: block;
-	}
-}
-.page_products{
-	.l-content_products{
-		display: block;
+@each $page in $pages {
+	.page_#{$page} {
+		.l-content_#{$page}{
+			display: block;
+		}
 	}
 }

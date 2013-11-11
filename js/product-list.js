@@ -8,7 +8,7 @@ ProductList.prototype.init = function(){
 	_this.initIsotope('.product-list-holder .isotope',{
         filter: '.isotope-item',
         masonry: {
-		  columnWidth: 270
+		  columnWidth: 220
 		}
     });
 
@@ -25,11 +25,11 @@ ProductList.prototype.initIsotope = function(elem, conf){
 			_this.isotopeElem = elem;
 		}
 		_this.isotopeElem.isotope(conf);
-		$(window).resize(function(){
+		$(window).resize(function() {
 			_this.isotopeElem.isotope('reLayout');
 		});
-		$('body').on('load:page', function() {
-			_this.isotopeElem.isotope('reLayout');
+		$('body').on('load:end', function() {
+			_this.isotopeElem.isotope('reLayout');			
 		});
 	}
 };

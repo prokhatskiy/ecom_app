@@ -36,11 +36,10 @@ var Router = Backbone.Router.extend({
 		this.$body.trigger('load:start');		
 
 		setTimeout($.proxy(function() {
-			this.clearClasses('page');
-			this.$body.trigger('load:end');
+			this.clearClasses('page');			
 			this.$body.addClass('page_' + page);
-			this.$body.trigger('load:page', page);
 			this.currentPage = page;
+			this.$body.trigger('load:end', page);
 
 			if(typeof callback === 'function') {
 				callback();
@@ -58,7 +57,6 @@ var Router = Backbone.Router.extend({
 	setState : function(state) {
 		if(!state) return;
 		var path = this.get();
-		console.log(this.get())
 		this.set(path[0] + '/' + state);
 	},
 
@@ -68,15 +66,13 @@ var Router = Backbone.Router.extend({
 		this.currentState = '';
 	},
 
-	default : function() {
-		this.clearClasses('page');
-		this.clearClasses('state');		
+	default : function() {		
 		this.set(this.homePath);
 	},
 
-	clearClasses : function(prefix) {
+	clearClasses : function(prefix) { 
 		var cls = this.$body.attr('class').split(' ');
-		for (var i = 0, l = cls.length; i < l; i++) {
+		for (var i = 0, l = cls.length; i < l; i++) {		
 			if(new RegExp(prefix + '_').test(cls[i])) {
 				this.$body.removeClass(cls[i]);
 			}

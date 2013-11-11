@@ -46,10 +46,11 @@ var UI = function(conf) {
 	});
 
 	//help
-	$('#helpBtn').on('click', function(e) {
+	$('#helpBtn').on('click', $.proxy(function(e) {
 		$('#help').toggleClass('active');
+		//this.$body.toggleClass('help');
 		return false;
-	});
+	}, this));
 
 	//login
 	$('.login').on('click', function() {
@@ -68,23 +69,27 @@ var UI = function(conf) {
 
 UI.prototype.initScroll = function(selector) {
 	var selector = selector || '.scroll';
-	return this.customScrollbars = $(selector).mCustomScrollbar({
-	 	autoHideScrollbar: true, 
-	 	autoDraggerLength : true,
-	 	scrollInertia: 10,
-	 	mouseWheelPixels: 50
-	});
+	// return this.customScrollbars = $(selector).mCustomScrollbar({
+	//  	autoHideScrollbar: true, 
+	//  	autoDraggerLength : true,
+	//  	scrollInertia: 10,
+	//  	mouseWheelPixels: 50
+	// });
 };
 
 UI.prototype.initLinks = function() {
 	var _this = this;
 
 	$(this.linkMenuSelector).on('click', function() {
-		var id = $(this).attr('href');
-		
+		var id = $(this).attr('href');		
 	});
-	$(this.linkSelector).on('click', function() {
+	$(this.linkSelector).on('click', function() {		
 		_this.router.set($(this).attr('href'));		
+		return false;
+	});
+	$(this.linkMenuSelector).on('click', function() {
+		_this.router.clearStates();
+		_this.$body.addClass('state_menu state_menu_' + $(this).attr('href'));
 		return false;
 	});
 	$(this.linkActionSelector).on('click', function() {
@@ -98,11 +103,10 @@ UI.prototype.initLinks = function() {
 		}
 		else {
 			_this.router.setState($(this).attr('href'));
-		}
-		
+		}		
 		return false;
 	});
-	$(this.closeLinkSelector).on('click', $.proxy(function() {
+	$(this.closeLinkSelector).on('click', $.proxy(function(event) {
 		this.router.clearStates();
 		return false;
 	}, this));
@@ -110,7 +114,7 @@ UI.prototype.initLinks = function() {
 
 UI.prototype.refreshScroll = function($el) {
 	var $el = $el || $('.scroll');
-	return $el.mCustomScrollbar('update');
+	//return $el.mCustomScrollbar('update');
 }
 
 UI.prototype.onResize = function() {
@@ -153,11 +157,11 @@ UI.prototype.onKeydown = function() {
 
 UI.prototype.load = function(isLoading) {
 	if(isLoading) {
-		this.$body.addClass('state_load');
+		this.$body.addClass('loading');
 		NProgress.start();
 	}
 	else {
 		NProgress.done();
-		this.$body.removeClass('state_load');		
+		this.$body.removeClass('loading');		
 	}
 };

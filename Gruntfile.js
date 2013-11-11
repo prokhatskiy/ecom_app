@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           paths: ['stylus/']
         },
         files: {
-          'stylus/styles.css': ['stylus/_*.styl'] // compile and concat into single file
+          'stylus/styles.css': ['stylus/_*.styl'] 
         }
       }
     },
@@ -88,6 +88,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-include-replace');
 
-  grunt.registerTask( 'build', ['compass','stylus','concat', 'includereplace','cssmin']);
+  grunt.registerTask( 'build', ['compass', 'stylus','concat', 'includereplace','cssmin']);
   grunt.registerTask( 'default', ['build', 'watch']);
 };

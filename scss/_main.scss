@@ -2686,7 +2686,7 @@
 	}
 }
 
-@media screen and (max-height : $maxHeight) {
+@media screen and (max-height: $maxHeight) {
 	.user{
 		.user__t{
 			height: $hh_s;
@@ -2698,4 +2698,63 @@
 			bottom: $fh_s + 5px;
 		}
 	}	
+}
+
+/* ==========================================================================
+   product
+   ========================================================================== */
+   
+.product{
+	$content_width: 400px;
+	$recent_width: 220px;
+	overflow: hidden;
+	
+	.product__content,
+	.product__info,
+	.product__recent{
+		position: absolute;
+		top: 0;
+	}
+	
+	.product__content{
+		z-index: 2;
+		bottom: 0;
+		width: $content_width;		
+	}
+
+	.product__info{
+		z-index: 1;
+		left: $content_width;
+		right: 0;
+		bottom: 0;
+		padding-right: $recent_width;
+		height: 100%;	
+		overflow:auto;	
+	}
+
+	.product__recent{
+		z-index: 2;
+		right: 0;
+		width: $recent_width;
+		bottom: 0;
+		overflow: auto;
+	}
+
+	.product__descr{
+		position: absolute;
+		top: 0;
+		bottom: 76px;
+		left: 0;
+		width: 100%;
+		overflow: auto;
+	}
+
+	.product__footer{
+		position: absolute;
+		bottom: 0;
+		height: 76px;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+	}
 }
