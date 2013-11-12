@@ -16,13 +16,13 @@
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png" />
 
-        <link rel="stylesheet" href="css/styles.min.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body class="state_load">                
         <div class="l-wrapper">
 		<!-- .l-content -->
 		<section class="l-content l-content_product product" id="product">
-			<div class="product__content">
+			<div class="product__content scroll">
 				<div class="product__descr">
 					<div class="crumbs">
 						<a href="category" class="crumbs__l link">Apparel</a>
@@ -36,42 +36,42 @@
 						$1100
 					</div>
 					<dl class="param param_colors">
-						<dt class="param-t">
+						<dt class="param__t">
 							Color: <strong class="product__color-name" id="product_color_name">Caramel</strong>
 						</dt>
-						<dd class="param-i param-i_active" data-name="caramel">
-							<img src="temp/product-color-1.png" alt="" class="param-img">
+						<dd class="param__i param__i_active" data-name="caramel">
+							<img src="temp/product-color-1.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-2.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-2.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-3.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-3.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-4.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-4.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i param-i_disable" data-name="caramel">
-							<img src="temp/product-color-5.png" alt="" class="param-img">
+						<dd class="param__i param__i_disable" data-name="caramel">
+							<img src="temp/product-color-5.png" alt="" class="param__img">
 						</dd>
 					</dl>
 					<dl class="param param_size">
-						<dt class="param-t">
+						<dt class="param__t">
 							Size: <strong class="product__color-name" id="product_color_name">XS</strong>
 						</dt>
-						<dd class="param-i param-i_active" data-name="xs">
+						<dd class="param__i param__i_active" data-name="xs">
 							xs
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							s
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							m
 						</dd>
-						<dd class="param-i param-i_disable" data-name="xs">
+						<dd class="param__i param__i_disable" data-name="xs">
 							l
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							xl
 						</dd>
 						<dd class="param__tooltip">Size Chart</dd>
@@ -81,12 +81,73 @@
 					</div>
 				</div>		
 				<div class="product__footer">
-					
+					<button class="product__buy-btn">Add To Cart</button>
+					<button class="product__wl-btn">Add To Wishlist</button>
+					<button class="product__compare-btn">Compare</button>
+					<div class="product__shiping">
+						Free shiping around the world
+					</div>
 				</div>	
 			</div>
 			<aside class="product__info">
+				<div class="product__img" id="productImage">
+					<img src="temp/product.jpg" alt="" class="product__src">
+					<button class="product__img-prev"></button>
+					<button class="product__img-next"></button>
+					<ul class="product__imgs-li">
+						<li class="product__imgs-i">
+							<img src="temp/product_small-1.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i">
+							<img src="temp/product_small-2.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i product__imgs-i_active">
+							<img src="temp/product_small-3.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i">
+							<img src="temp/product_small-4.jpg" alt="" class="product__imgs-img">
+						</li>
+					</ul>
+				</div>
+				
+				<div class="product__tabs">
+					<a href="#" class="product__tab active" data-tab-id="1">Details</a>
+					<a href="#" class="product__tab" data-tab-id="2">Delivery</a>
+					<a href="#" class="product__tab" data-tab-id="3">Reviews <span>1</span></a>
+				</div>
+				<div class="product__cond active" data-tab-id="1">
+					<p>
+						Directional, exciting and diverse, the Collection makes and breaks the fashion rules. Scouring the globe for inspiration, our London based Design Team is inspired by fashion’s most covetable trends; providing you with a cutting edge wardrobe season upon season.
+					</p>					
+					<img src="temp/product__conditions.png" alt="">
+				</div>
+				<div class="product__cond" data-tab-id="2">
+					<img src="temp/delivery.png" alt="">
+				</div>
+				<div class="product__cond" data-tab-id="3">
+					<div class="comments">
+						<div class="comments__form">
+							<button class="comments__submit"></button>
+							<input type="text" class="comments__txt" placeholder="Leave your review">
+						</div>
+						<div class="comments__i">
+							<div class="comments__name">
+								<img src="temp/user.png" alt="">Tamm  <time>10/25/2013</time>
+							</div>
+							<div class="comments__rating">
+								<img src="img/recent__rating.png" alt="">
+							</div>
+							<div class="comments__content">
+								The other comment mentions the coat runs large. I am 5'2" and not that thin, so I got a medium anyway. It is still too large. The jacket is wide and the sleeves are long. So yes, go for a smaller size. 
+							</div>
+							<div class="comments__plus">
+								<img src="temp/comment__rating.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
 			</aside>
-			<aside class="product__recent">
+			<aside class="product__recent scroll">
 				<dl class="recent">
 					<dt class="recent__t">
 						Complete Your Look
@@ -102,6 +163,18 @@
 						</h3>
 						<div class="recent__rating"></div>
 						<div class="recent__price">$60</div>
+					</dd>
+					<dd class="recent__i">
+						<a href="#" class="recent__img">	
+							<img src="temp/recent_product-2.jpg" alt="" class="recent__src">
+						</a>
+						<h3 class="recent__t">
+							<a href="#" class="recent__t-l">	
+								COMBINED NAPPA BOOTS
+							</a>
+						</h3>
+						<div class="recent__rating"></div>
+						<div class="recent__price">$98</div>
 					</dd>
 				</dl>
 			</aside>
@@ -709,7 +782,7 @@
 		</nav>
 		<!-- .l-content -->
 		<section class="l-content l-content_product product" id="product">
-			<div class="product__content">
+			<div class="product__content scroll">
 				<div class="product__descr">
 					<div class="crumbs">
 						<a href="category" class="crumbs__l link">Apparel</a>
@@ -723,42 +796,42 @@
 						$1100
 					</div>
 					<dl class="param param_colors">
-						<dt class="param-t">
+						<dt class="param__t">
 							Color: <strong class="product__color-name" id="product_color_name">Caramel</strong>
 						</dt>
-						<dd class="param-i param-i_active" data-name="caramel">
-							<img src="temp/product-color-1.png" alt="" class="param-img">
+						<dd class="param__i param__i_active" data-name="caramel">
+							<img src="temp/product-color-1.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-2.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-2.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-3.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-3.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i" data-name="caramel">
-							<img src="temp/product-color-4.png" alt="" class="param-img">
+						<dd class="param__i" data-name="caramel">
+							<img src="temp/product-color-4.png" alt="" class="param__img">
 						</dd>
-						<dd class="param-i param-i_disable" data-name="caramel">
-							<img src="temp/product-color-5.png" alt="" class="param-img">
+						<dd class="param__i param__i_disable" data-name="caramel">
+							<img src="temp/product-color-5.png" alt="" class="param__img">
 						</dd>
 					</dl>
 					<dl class="param param_size">
-						<dt class="param-t">
+						<dt class="param__t">
 							Size: <strong class="product__color-name" id="product_color_name">XS</strong>
 						</dt>
-						<dd class="param-i param-i_active" data-name="xs">
+						<dd class="param__i param__i_active" data-name="xs">
 							xs
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							s
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							m
 						</dd>
-						<dd class="param-i param-i_disable" data-name="xs">
+						<dd class="param__i param__i_disable" data-name="xs">
 							l
 						</dd>
-						<dd class="param-i" data-name="xs">
+						<dd class="param__i" data-name="xs">
 							xl
 						</dd>
 						<dd class="param__tooltip">Size Chart</dd>
@@ -768,12 +841,73 @@
 					</div>
 				</div>		
 				<div class="product__footer">
-					
+					<button class="product__buy-btn">Add To Cart</button>
+					<button class="product__wl-btn">Add To Wishlist</button>
+					<button class="product__compare-btn">Compare</button>
+					<div class="product__shiping">
+						Free shiping around the world
+					</div>
 				</div>	
 			</div>
 			<aside class="product__info">
+				<div class="product__img" id="productImage">
+					<img src="temp/product.jpg" alt="" class="product__src">
+					<button class="product__img-prev"></button>
+					<button class="product__img-next"></button>
+					<ul class="product__imgs-li">
+						<li class="product__imgs-i">
+							<img src="temp/product_small-1.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i">
+							<img src="temp/product_small-2.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i product__imgs-i_active">
+							<img src="temp/product_small-3.jpg" alt="" class="product__imgs-img">
+						</li>
+						<li class="product__imgs-i">
+							<img src="temp/product_small-4.jpg" alt="" class="product__imgs-img">
+						</li>
+					</ul>
+				</div>
+				
+				<div class="product__tabs">
+					<a href="#" class="product__tab active" data-tab-id="1">Details</a>
+					<a href="#" class="product__tab" data-tab-id="2">Delivery</a>
+					<a href="#" class="product__tab" data-tab-id="3">Reviews <span>1</span></a>
+				</div>
+				<div class="product__cond active" data-tab-id="1">
+					<p>
+						Directional, exciting and diverse, the Collection makes and breaks the fashion rules. Scouring the globe for inspiration, our London based Design Team is inspired by fashion’s most covetable trends; providing you with a cutting edge wardrobe season upon season.
+					</p>					
+					<img src="temp/product__conditions.png" alt="">
+				</div>
+				<div class="product__cond" data-tab-id="2">
+					<img src="temp/delivery.png" alt="">
+				</div>
+				<div class="product__cond" data-tab-id="3">
+					<div class="comments">
+						<div class="comments__form">
+							<button class="comments__submit"></button>
+							<input type="text" class="comments__txt" placeholder="Leave your review">
+						</div>
+						<div class="comments__i">
+							<div class="comments__name">
+								<img src="temp/user.png" alt="">Tamm  <time>10/25/2013</time>
+							</div>
+							<div class="comments__rating">
+								<img src="img/recent__rating.png" alt="">
+							</div>
+							<div class="comments__content">
+								The other comment mentions the coat runs large. I am 5'2" and not that thin, so I got a medium anyway. It is still too large. The jacket is wide and the sleeves are long. So yes, go for a smaller size. 
+							</div>
+							<div class="comments__plus">
+								<img src="temp/comment__rating.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
 			</aside>
-			<aside class="product__recent">
+			<aside class="product__recent scroll">
 				<dl class="recent">
 					<dt class="recent__t">
 						Complete Your Look
@@ -789,6 +923,18 @@
 						</h3>
 						<div class="recent__rating"></div>
 						<div class="recent__price">$60</div>
+					</dd>
+					<dd class="recent__i">
+						<a href="#" class="recent__img">	
+							<img src="temp/recent_product-2.jpg" alt="" class="recent__src">
+						</a>
+						<h3 class="recent__t">
+							<a href="#" class="recent__t-l">	
+								COMBINED NAPPA BOOTS
+							</a>
+						</h3>
+						<div class="recent__rating"></div>
+						<div class="recent__price">$98</div>
 					</dd>
 				</dl>
 			</aside>
@@ -1626,6 +1772,7 @@
 <script src="js/search.js"></script>
 <script src="js/Cart.js"></script>
 <script src="js/Map.js"></script>
+<script src="js/Product.js"></script>
 <script src="js/product-list.js"></script>
 <script src="js/Router.js"></script>
 <script src="js/UI.js"></script>

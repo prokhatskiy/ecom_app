@@ -127,6 +127,7 @@ UI.prototype.onLoad = function() {
 	brands.init();
 	search.init();
 	_this.ProductList = new ProductList();
+	_this.Product = new Product();
 
 	//location message
 	$('#messageLang').removeClass('hide');	

@@ -42,11 +42,11 @@ module.exports = function(grunt) {
       html: {
         files: ['blocks/*.html', 'layouts/*.html'],
         tasks: ['includereplace']
-      },
-      minifier: {
-        files: ['css/styles.css'],
-        tasks: ['cssmin']
-      }
+      }//,
+      // minifier: {
+      //   files: ['css/styles.css'],
+      //   tasks: ['cssmin']
+      // }
     },
     clean: {
       css: ["scss/_*.css"],
@@ -88,6 +88,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-include-replace');
 
-  grunt.registerTask( 'build', ['compass', 'stylus','concat', 'includereplace','cssmin']);
+  grunt.registerTask( 'build', ['compass', 'stylus', 'concat', 'includereplace',/*'cssmin'*/]);
   grunt.registerTask( 'default', ['build', 'watch']);
 };
