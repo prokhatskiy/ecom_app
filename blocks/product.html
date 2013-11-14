@@ -9,6 +9,9 @@
 					<h1 class="product__t">
 						PARKA WITH FUR HOOD
 					</h1>
+					<div class="product__sku">
+						Ref. 0924138560504
+					</div>
 					<div class="product__rating"></div>
 					<div class="product__price product__price_stock">
 						$1100
@@ -69,20 +72,26 @@
 			</div>
 			<aside class="product__info">
 				<div class="product__img" id="productImage">
-					<img src="temp/product.jpg" alt="" class="product__src">
+
+					<div class="product__src" data-img-id="1" style="background-image: url(temp/product.jpg);"></div>
+					<div class="product__src" data-img-id="2" style="background-image: url(temp/product.jpg);"></div>
+					<div class="product__src active" data-img-id="3" style="background-image: url(temp/product.jpg);"></div>
+					<div class="product__src" data-img-id="4" style="background-image: url(temp/product.jpg);"></div>
+
 					<button class="product__img-prev"></button>
 					<button class="product__img-next"></button>
+
 					<ul class="product__imgs-li">
-						<li class="product__imgs-i">
+						<li class="product__imgs-i" data-img-id="1">
 							<img src="temp/product_small-1.jpg" alt="" class="product__imgs-img">
 						</li>
-						<li class="product__imgs-i">
+						<li class="product__imgs-i" data-img-id="2">
 							<img src="temp/product_small-2.jpg" alt="" class="product__imgs-img">
 						</li>
-						<li class="product__imgs-i product__imgs-i_active">
+						<li class="product__imgs-i active" data-img-id="3">
 							<img src="temp/product_small-3.jpg" alt="" class="product__imgs-img">
 						</li>
-						<li class="product__imgs-i">
+						<li class="product__imgs-i" data-img-id="4">
 							<img src="temp/product_small-4.jpg" alt="" class="product__imgs-img">
 						</li>
 					</ul>
@@ -134,7 +143,7 @@
 						<a href="#" class="recent__img">	
 							<img src="temp/recent_product-1.jpg" alt="" class="recent__src">
 						</a>
-						<h3 class="recent__t">
+						<h3 class="recent__i-t">
 							<a href="#" class="recent__t-l">	
 								SWEATER TWIST COLOUR EDGE
 							</a>
@@ -146,7 +155,19 @@
 						<a href="#" class="recent__img">	
 							<img src="temp/recent_product-2.jpg" alt="" class="recent__src">
 						</a>
-						<h3 class="recent__t">
+						<h3 class="recent__i-t">
+							<a href="#" class="recent__t-l">	
+								COMBINED NAPPA BOOTS
+							</a>
+						</h3>
+						<div class="recent__rating"></div>
+						<div class="recent__price">$98</div>
+					</dd>
+					<dd class="recent__i">
+						<a href="#" class="recent__img">	
+							<img src="temp/recent_product-1.jpg" alt="" class="recent__src">
+						</a>
+						<h3 class="recent__i-t">
 							<a href="#" class="recent__t-l">	
 								COMBINED NAPPA BOOTS
 							</a>

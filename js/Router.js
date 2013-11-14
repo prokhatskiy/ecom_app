@@ -63,7 +63,7 @@ var Router = Backbone.Router.extend({
 	clearStates : function() {
 		this.clearClasses('state');	
 		this.set(this.get()[0]);
-		this.currentState = '';
+		this.currentState = '';		
 	},
 
 	default : function() {		

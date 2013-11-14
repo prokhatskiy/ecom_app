@@ -1,11 +1,12 @@
 @import "compass";
 .product-popup-holder {
+	display: none;
 	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: $fh;
 	top: $hh;
-	z-index: 1;
+	z-index: 6;
 	background: rgba(51,51,51,0.6);
 }
 .product-popup {

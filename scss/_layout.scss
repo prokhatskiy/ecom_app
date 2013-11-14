@@ -67,7 +67,8 @@ body{
 }
 
 .l-header{
-	@include box-shadow(0 0 20px rgba(0, 0, 0, 1/10));
+	border-bottom: 1px solid #e8e8e9;
+	@include box-sizing(border-box);
 	position: relative;
 	top: 0;
 	z-index: 2;
@@ -87,7 +88,8 @@ body{
 }
 
 .l-footer{
-	@include box-shadow(0 0 20px rgba(0, 0, 0, 2/10));
+	border-top: 1px solid #e8e8e9;
+	@include box-sizing(border-box);
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -265,7 +267,8 @@ body{
 .state_user,
 .state_login,
 .state_menu,
-.state_settings{
+.state_settings,
+.state_quicklook{
 	.l-overlay{
 		display: block;
 		opacity: 1;
@@ -350,6 +353,13 @@ body{
 
 .state_menu_women{
 	.menu_women{
+		display: block;
+	}
+}
+
+//quick look
+.state_quicklook{
+	.product-popup-holder{
 		display: block;
 	}
 }

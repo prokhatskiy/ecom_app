@@ -12,6 +12,12 @@ var UI = function(conf) {
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
+
+	//SHIIIIITTT
+	$('.l-wrapper').on('scroll', function() {
+		$(this).scrollTop(0);
+	});	
+
 	//Load event
 	this.$win.on('load:start', function() {
 		_this.load(true);
@@ -134,7 +140,7 @@ UI.prototype.onLoad = function() {
 	_this.locationTimeout();	
 	_this.router = new Router();
 	Backbone.history.start();
-	_this.map = new Map();		
+	_this.map = new Map();	
 };
 
 UI.prototype.locationTimeout = function() {
