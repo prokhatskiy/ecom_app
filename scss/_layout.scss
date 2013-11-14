@@ -550,7 +550,7 @@ $states : women, men, kids, home;
    pages
    ========================================================================== */
    
-$pages : home category products product;
+$pages : home category products product search;
 
 @each $page in $pages {
 	.page_#{$page} {

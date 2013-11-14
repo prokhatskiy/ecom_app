@@ -14,7 +14,7 @@ var Router = Backbone.Router.extend({
 		var page = page || false,
 		    state = state || false;
 
-		if(page && page != this.currentPage) {
+		if(page && page != this.currentPage) {			
 			this.setPageCls(page);			
 		}
 		else if(!page) {

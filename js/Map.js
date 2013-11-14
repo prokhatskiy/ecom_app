@@ -2,12 +2,17 @@ var Map = function(conf) {
 	var _this = this,
 	    conf = conf || {};
 
-	this.mapCenter = [40.178873,-73.839111];
+	this.mapCenter = [38.4, -100.3];
 
 	this.cords = [
 		[40.07982, -75.31033],
 		[40.71095, -74.00980],
-		[38.97535, -74.91666]
+		[38.97535, -74.91666],
+		[37.7242, -122.4434],
+		[33.9802, -118.2874],
+		[36.1472, -115.1773],
+		[29.7492, -95.396],
+		[33.7843, -84.422]
 	];
 
 	this.marker = 'img/map__marker.png';
@@ -16,7 +21,7 @@ var Map = function(conf) {
 
 	this.mapOptions = {
       	center: this.ll,
-      	zoom: 8,
+      	zoom: 5,
        	panControl: false,
 		zoomControl: true,
 		mapTypeControl: false,

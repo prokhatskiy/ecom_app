@@ -12,7 +12,6 @@ var UI = function(conf) {
 	this.closeLinkSelector = '.link_close';
 	this.loadDelay = 1000;
 
-
 	//SHIIIIITTT
 	$('.l-wrapper').on('scroll', function() {
 		$(this).scrollTop(0);
@@ -73,23 +72,15 @@ var UI = function(conf) {
 	return this;
 };	
 
-UI.prototype.initScroll = function(selector) {
-	var selector = selector || '.scroll';
-	// return this.customScrollbars = $(selector).mCustomScrollbar({
-	//  	autoHideScrollbar: true, 
-	//  	autoDraggerLength : true,
-	//  	scrollInertia: 10,
-	//  	mouseWheelPixels: 50
-	// });
-};
-
 UI.prototype.initLinks = function() {
 	var _this = this;
 
-	$(this.linkMenuSelector).on('click', function() {
-		var id = $(this).attr('href');		
+	//mega shit
+	$('a').on('click', function() {
+		if($(this).attr('href') === '#') return false;
 	});
-	$(this.linkSelector).on('click', function() {		
+
+	$(this.linkSelector).on('click', function() {	
 		_this.router.set($(this).attr('href'));		
 		return false;
 	});
@@ -118,18 +109,12 @@ UI.prototype.initLinks = function() {
 	}, this));
 };
 
-UI.prototype.refreshScroll = function($el) {
-	var $el = $el || $('.scroll');
-	//return $el.mCustomScrollbar('update');
-}
-
 UI.prototype.onResize = function() {
 	this.resizeMenu();
 };
 
 UI.prototype.onLoad = function() {
 	var _this = this;
-	this.initScroll();
 	brands.init();
 	search.init();
 	_this.ProductList = new ProductList();
@@ -146,7 +131,7 @@ UI.prototype.onLoad = function() {
 UI.prototype.locationTimeout = function() {
 	setTimeout(function() {
 		$('#messageLang').addClass('hide');
-	}, 3000);
+	}, 9000);
 };
 
 UI.prototype.resizeMenu = function() {

@@ -879,7 +879,7 @@
 	}
 
 	&.hide{
-		top: -200px;
+		top: -2000px;
 		@include opacity(0);
 	}
 }
@@ -2872,6 +2872,11 @@
 		margin-bottom: 20px;
 		text-align: center;
 		position: relative;
+		display: none;
+		
+		&.active{
+			display: block;
+		}
 	}
 
 	.product__src{
@@ -2998,6 +3003,7 @@
 
 	.product__cond{
 		margin: 20px 0;
+		height: 300px;
 		display: none;
 		text-align: center;
 		
@@ -3062,7 +3068,7 @@
 		border: 2px solid transparent
 	}
 
-	.param__i_active{
+	.param__i.active{
 		border-color: #f32a64 !important;
 		cursor: default;
 	}
@@ -3071,10 +3077,12 @@
 .param_colors{
 	.param__i{
 		width: 64px;
-		width: 64px;		
+		width: 64px;
+		margin-right: 10px;
+		background-color: #FFF;		
 	}
 
-	.param__i_active{
+	.param__i.active{
 		position: relative;
 		
 		&:after{
